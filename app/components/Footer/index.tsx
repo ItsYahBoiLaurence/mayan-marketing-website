@@ -39,7 +39,8 @@ const index = () => {
           <Text size='xs' key={title}>
             <Anchor href={link}>
               {title} |
-            </Anchor></Text>
+            </Anchor>
+          </Text>
         ))}
       </Group>
     </Group>
