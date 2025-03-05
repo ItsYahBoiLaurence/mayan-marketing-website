@@ -1,18 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { MantineProvider, createTheme, rem } from '@mantine/core'
+import { Box, MantineProvider, Stack, createTheme, rem } from '@mantine/core'
 import '@mantine/core/styles.css';
+import Navbar from "./components/NavBar";
+import Footer from './components/Footer'
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Mayan Solutions",
@@ -83,7 +75,6 @@ const theme = createTheme({
     ]
   }
 })
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -93,10 +84,11 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <MantineProvider theme={theme}>
+          <Navbar />
           {children}
+          <Footer />
         </MantineProvider>
       </body>
     </html >
-
   );
 }
