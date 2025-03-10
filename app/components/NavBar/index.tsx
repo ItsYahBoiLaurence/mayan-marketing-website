@@ -3,7 +3,7 @@ import React from 'react'
 import Text from '../MantineComponents/Text'
 const Navbar = () => {
     return (
-        <Group style={{ position: 'fixed', top: 0, zIndex: 1000 }} w='100%' justify='space-around' p='md' bg={'transparent'}>
+        <Group style={{ position: 'fixed', top: 0, zIndex: 1000, backdropFilter: 'blur(10px)', backgroundColor: 'rgba(0, 0, 0, 0.1)', }} w='100%' justify='space-around' p='md'>
             <Image
                 radius="md"
                 h={50}
