@@ -1,4 +1,4 @@
-import { Badge, Card, Stack, Text, Title } from '@mantine/core'
+import { Badge, Card, Stack, Text } from '@mantine/core'
 import React from 'react'
 
 type FAQType = {

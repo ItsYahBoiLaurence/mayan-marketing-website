@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Box, MantineProvider, Stack, createTheme, rem } from '@mantine/core'
+import { Anchor, Box, MantineProvider, Stack, createTheme, rem } from '@mantine/core'
 import '@mantine/core/styles.css';
 import Navbar from "./components/NavBar";
 import Footer from './components/Footer'
@@ -34,7 +34,7 @@ const theme = createTheme({
     xl: rem(32),
     xxl: rem(40),
   },
-  black: '#1e1e1e',
+  black: '#111013',
   white: "#ffffff",
   colors: {
     neon_blue: [

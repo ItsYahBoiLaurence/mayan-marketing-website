@@ -62,7 +62,7 @@ export default function Home() {
       <CompanyCard />
 
       {/* Tech Stack Section */}
-      <Flex bg={'pink'}>
+      <Flex>
         <Center bg={'black'} w={'100%'} style={{ flex: 0.60 }}>
           <SimpleGrid cols={4} verticalSpacing={'50'} w={'100%'}>
             {images.map(({ image, title }) => (

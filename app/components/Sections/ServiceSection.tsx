@@ -29,7 +29,7 @@ const services = [
 
 const ServiceSection = () => {
     return (
-        <Flex w={'70%'} mx={'auto'} p={'xl'} gap={'md'}>
+        <Flex w={'80%'} mx={'auto'} p={'xl'} gap={'md'}>
             <Box >
                 <Stack justify='start'>
                     <Title order={2} fw={700}>Your blueprint

@@ -39,7 +39,7 @@ const faqs: FAQ[] = [
 const FAQSection = () => {
 
     return (
-        <Flex w={'70%'} mx={'auto'} p={'xl'} gap={'md'}>
+        <Flex w={'80%'} mx={'auto'} p={'xl'} gap={'md'}>
             <Box style={{ flex: 0.30 }}>
                 <Card >
                     <Stack>
