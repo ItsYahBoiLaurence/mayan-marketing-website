@@ -29,9 +29,10 @@ const companies: CompanyCardProps[] = [{
 
 const CompanyCard = () => {
     return (
-        <Center w={'100%'} p={'md'}>
-            <Stack>
+        <Center w={'100%'} p={'md'} py={'xxl'}>
+            <Stack align='center'>
                 <Title ta={'center'} fw={700}>Trusted by High Caliber Local <br />and Global Players</Title>
+                <Text size='sm' w={'50%'} ta={'center'}>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantiumSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</Text>
                 <SimpleGrid cols={3}>
                     {
                         companies.map(({ image, name, description }: CompanyCardProps) => (

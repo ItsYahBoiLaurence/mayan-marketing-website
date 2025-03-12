@@ -1,4 +1,4 @@
-import { BackgroundImage, Flex, } from '@mantine/core'
+import { BackgroundImage, Box, Flex, } from '@mantine/core'
 import React from 'react'
 import RightBanner from './RightBanner'
 
@@ -7,13 +7,16 @@ type SectionBannerType = {
     subDescription: string,
     buttonDesc?: string,
     image: string,
+    textColor?: string,
 }
 
-const SectionBanner = ({ title, subDescription, buttonDesc, image }: SectionBannerType) => {
+const SectionBanner = ({ title, subDescription, buttonDesc, image, textColor }: SectionBannerType) => {
     return (
-        <Flex>
-            <BackgroundImage src={image}></BackgroundImage>
-            <RightBanner title={title} subDescription={subDescription} buttonDesc={buttonDesc} />
+        <Flex w={'100%'} bg={'pink'}>
+            <BackgroundImage src={image} style={{ flex: 0.60 }}></BackgroundImage>
+            <Box style={{ flex: 0.40 }}>
+                <RightBanner bg="#023DC5" title={title} subDescription={subDescription} buttonDesc={buttonDesc} textColor={textColor} />
+            </Box>
         </Flex>
     )
 }

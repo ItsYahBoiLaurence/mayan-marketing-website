@@ -5,15 +5,17 @@ type SectionBannerType = {
     title: string,
     subDescription: string,
     buttonDesc?: string,
+    bg: string,
+    textColor?: string,
 }
 
-const RightBanner = ({ title, subDescription, buttonDesc }: SectionBannerType) => {
+const RightBanner = ({ title, subDescription, buttonDesc, bg, textColor }: SectionBannerType) => {
     return (
-        <BackgroundImage src='/bgBanner.png' w={"70%"} h={"60vh"}>
-            <Paper bg='#023DC5' opacity={0.97} h={'100%'} p='xxl' style={{ display: 'flex', alignItems: 'center' }}>
+        <BackgroundImage src='/bgBanner.png' w={"100%"} h={"60vh"}>
+            <Paper bg={bg} opacity={0.97} h={'100%'} p='xxl' style={{ display: 'flex', alignItems: 'center' }}>
                 <Stack w={'60%'}>
-                    <Title order={1} fw={700} c={'white'}>{title}</Title>
-                    <Text size='xs' c={'white'}>{subDescription}</Text>
+                    <Text size={"42px"} fw={700} c={textColor}>{title}</Text>
+                    <Text size='sm' c={textColor}>{subDescription}</Text>
                     {buttonDesc && (<Button radius={'xl'} color='jonquil' c={'black'}>{buttonDesc}</Button>)}
                 </Stack>
             </Paper>

@@ -1,4 +1,4 @@
-import { Box, Flex, Group, SimpleGrid, Stack, Text, Title } from '@mantine/core'
+import { Box, Center, Flex, Group, SimpleGrid, Stack, Text, Title } from '@mantine/core'
 import React from 'react'
 import ServiceCard from '../Cards/ServiceCard'
 
@@ -29,25 +29,24 @@ const services = [
 
 const ServiceSection = () => {
     return (
-        <div>
-            <Flex>
-                <Box >
-                    <Stack justify='start'>
-                        <Title order={2} fw={700}>Your blueprint
-                            for digital implementation, simplified.
-                        </Title>
-                        <Text size='xs'>
-                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
-                        </Text>
-                    </Stack>
-                </Box>
-                <SimpleGrid cols={2} verticalSpacing={'md'}>
-                    {services.map(({ id, title, description }) => (
-                        <ServiceCard key={id} title={title} description={description} />
-                    ))}
-                </SimpleGrid>
-            </Flex>
-        </div>
+        <Flex w={'70%'} mx={'auto'} p={'xl'} gap={'md'}>
+            <Box >
+                <Stack justify='start'>
+                    <Title order={2} fw={700}>Your blueprint
+                        for digital implementation, simplified.
+                    </Title>
+                    <Text size='xs'>
+                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
+                    </Text>
+                </Stack>
+            </Box>
+            <SimpleGrid cols={2} verticalSpacing={'xl'} spacing={'xl'}>
+                {services.map(({ id, title, description }) => (
+                    <ServiceCard key={id} title={title} description={description} />
+                ))}
+            </SimpleGrid>
+        </Flex>
+
     )
 }
 
