@@ -15,9 +15,8 @@ const index = () => {
                                 <Textarea placeholder='Please tell us what you are trying to achieve' label={<Text>Message</Text>} />
                             </Stack>
                             <Checkbox label={<Text size='xs'>By clicking the checkbox you agree to the Privacy Policy and terms of service </Text>} />
-                            <Button variant='filled' color='blue'>Submit</Button>
+                            <Button variant='filled' color='#FBCA12' autoContrast>Submit</Button>
                         </Stack>
-
                     </form>
                 </Stack>
             </Paper>
