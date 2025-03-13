@@ -77,7 +77,7 @@ export default function Home() {
             bg="#FBCA12"
             textColor={'black'}
             title={"Our tech stack and growth partners"}
-            subDescription={"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium"}
+            subDescription={"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantiumm"}
           />
         </Box>
       </Flex>
