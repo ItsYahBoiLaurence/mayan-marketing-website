@@ -1,4 +1,4 @@
-import { BackgroundImage, Box, Button, Center, Checkbox, Paper, Stack, Text, Textarea, TextInput, Title } from '@mantine/core'
+import { BackgroundImage, Button, Checkbox, Paper, Stack, Text, Textarea, TextInput, Title } from '@mantine/core'
 import React from 'react'
 
 const index = () => {
@@ -6,7 +6,7 @@ const index = () => {
         <BackgroundImage src='/formBg.jpeg' pos={'absolute'} bottom={'-50px'} h={'550px'} radius={'lg'}>
             <Paper p={'xl'} radius={'lg'} w={'100%'} h={'100%'} bg={'#EFEFEF'} opacity={1} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 <Stack w={'90%'} h={'80%'}>
-                    <Title order={3} fw={500}>Let's talk about your business!</Title>
+                    <Title order={3} fw={500}>{"Let's talk about your business!"}</Title>
                     <form>
                         <Stack>
                             <Stack>

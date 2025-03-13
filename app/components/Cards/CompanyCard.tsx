@@ -1,4 +1,4 @@
-import { Avatar, Box, Center, Group, Paper, SimpleGrid, Stack, Text, Title } from '@mantine/core'
+import { Avatar, Center, Paper, SimpleGrid, Stack, Text, Title } from '@mantine/core'
 import React from 'react'
 
 type CompanyCardProps = {

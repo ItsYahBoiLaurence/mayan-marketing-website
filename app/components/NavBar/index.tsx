@@ -1,4 +1,4 @@
-import { Anchor, Box, Button, Group, Image, Paper, Text } from '@mantine/core'
+import { Anchor, Group, Image, Paper, Text } from '@mantine/core'
 import React from 'react'
 
 
@@ -35,6 +35,7 @@ const Navbar = () => {
                     radius="md"
                     h={50}
                     src="/favicon.png"
+                    alt='logo'
                 />
             </Anchor>
 
@@ -49,7 +50,7 @@ const Navbar = () => {
             </Paper>
             <Anchor href='/contact-us'>
                 <Paper bg='white' px='xl' py='sm' radius='xl'>
-                    <Text c={'black'}>Let's Talk</Text>
+                    <Text c={'black'}>{"Let's Talk"}</Text>
                 </Paper>
             </Anchor>
         </Group >

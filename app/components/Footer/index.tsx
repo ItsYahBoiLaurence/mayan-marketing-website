@@ -1,4 +1,4 @@
-import { Anchor, Box, Group, Image, Text } from '@mantine/core'
+import { Anchor, Group, Image, Text } from '@mantine/core'
 import React from 'react'
 
 type footerNavType = {
@@ -33,6 +33,7 @@ const index = () => {
         radius="md"
         h={20}
         src="/darkLogo.png"
+        alt='logo'
       />
       <Group>
         {footerNav.map(({ title, link }: footerNavType) => (

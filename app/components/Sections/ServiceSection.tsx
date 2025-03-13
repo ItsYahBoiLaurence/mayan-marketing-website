@@ -1,4 +1,4 @@
-import { Box, Center, Flex, Group, SimpleGrid, Stack, Text, Title } from '@mantine/core'
+import { Box, Flex, SimpleGrid, Stack, Text, Title } from '@mantine/core'
 import React from 'react'
 import ServiceCard from '../Cards/ServiceCard'
 

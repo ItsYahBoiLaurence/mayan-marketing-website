@@ -6,8 +6,7 @@ const CustomText = ({
     ...props
 }: {
     children: React.ReactNode;
-    [key: string]: any; // Allow any additional props
-}) => {
+} & React.ComponentPropsWithoutRef<typeof Text>) => {
     return (
         <Text c="white" size='sm' {...props}>{children}</Text>
     );

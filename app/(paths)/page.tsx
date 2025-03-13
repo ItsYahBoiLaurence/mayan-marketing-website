@@ -1,4 +1,4 @@
-import { BackgroundImage, Box, Center, Flex, Group, Image, Paper, SimpleGrid, Text } from "@mantine/core";
+import { Box, Center, Flex, Image, SimpleGrid } from "@mantine/core";
 import HomepageBanner from "../components/Banners/HomepageBanner";
 import CompanyCard from "../components/Cards/CompanyCard";
 import SectionBanner from "../components/Banners/SectionBanner";
@@ -67,7 +67,7 @@ export default function Home() {
           <SimpleGrid cols={4} verticalSpacing={'50'} w={'100%'}>
             {images.map(({ image, title }) => (
               <Center key={title}>
-                <Image src={image} w={150} fit="contain" h={100} />
+                <Image src={image} w={150} fit="contain" h={100} alt='logo' />
               </Center>
             ))}
           </SimpleGrid>

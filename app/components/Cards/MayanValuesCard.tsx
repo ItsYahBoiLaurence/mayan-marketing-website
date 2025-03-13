@@ -1,6 +1,6 @@
 import React from 'react'
 import { IconBulb, IconShieldPlus, IconPuzzle, IconHeartHandshake, IconTrendingUp } from '@tabler/icons-react';
-import { Avatar, Box, Group, Paper, SimpleGrid, Text } from '@mantine/core';
+import { Avatar, Group, Paper, SimpleGrid, Text } from '@mantine/core';
 
 const data = [
     {

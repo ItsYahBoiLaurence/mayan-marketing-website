@@ -1,4 +1,4 @@
-import { Center, Group, Paper, SimpleGrid } from "@mantine/core"
+import { Center, Group, SimpleGrid } from "@mantine/core"
 import CaseStudyCard from "../Cards/CaseStudyCard"
 
 const CardSection = () => {
@@ -26,7 +26,7 @@ const CardSection = () => {
     return (
         <Group justify="center" p={'md'} style={{ marginTop: '-70px', zIndex: 1, position: 'relative' }}>
             <SimpleGrid cols={3} verticalSpacing={'md'}>
-                {case_studies.map(({ id, title, brief_description, link }, index) => (
+                {case_studies.map(({ id /*, title, brief_description, link*/ }, index) => (
                     <Center key={id}>
                         <CaseStudyCard cardStyle={(index + 1)} />
                     </Center>

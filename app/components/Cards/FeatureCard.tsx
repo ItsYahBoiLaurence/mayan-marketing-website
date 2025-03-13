@@ -1,4 +1,4 @@
-import { BackgroundImage, Box, Card, ColorSwatch, Paper, SimpleGrid, Stack, Text, Title } from '@mantine/core'
+import { BackgroundImage, Box, ColorSwatch, Paper, SimpleGrid, Stack, Text, Title } from '@mantine/core'
 import React from 'react'
 
 const FeatureCard = () => {

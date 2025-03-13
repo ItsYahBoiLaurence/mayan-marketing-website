@@ -1,6 +1,4 @@
-import PageBanner from '@/app/components/Banners/PageBanner'
-import { BackgroundImage, Box, Button, Center, Flex, Group, Image, Paper, Stack, Title } from '@mantine/core'
-import Text from '@/app/components/MantineComponents/Text'
+import { Text, BackgroundImage, Box, Center, Flex, Paper, Stack, Title } from '@mantine/core'
 import React from 'react'
 import Form from '@/app/components/Form'
 const page = () => {
@@ -14,7 +12,7 @@ const page = () => {
                                 <Stack w={'80%'}>
                                     <Box>
                                         <Title c={'#fff'} fw={700}>Share your Stories.</Title>
-                                        <Title c={'#fff'} fw={700}>Let's get in touch.</Title>
+                                        <Title c={'#fff'} fw={700}>{"Let's get in touch."}</Title>
                                     </Box>
                                     <Text size='md' c={'#fff'}>Learn how to boost your business by harnessing the power of technology and discover innovative tools to drive success.</Text>
                                 </Stack>

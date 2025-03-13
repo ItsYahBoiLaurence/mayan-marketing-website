@@ -1,4 +1,4 @@
-import { BackgroundImage, Button, Paper, Stack, Text, Title } from '@mantine/core'
+import { BackgroundImage, Button, Paper, Stack, Text } from '@mantine/core'
 import React from 'react'
 
 type SectionBannerType = {

@@ -1,6 +1,5 @@
-import { BackgroundImage, Box, Button, Center, Flex, Group, Image, Paper, Stack, Title } from '@mantine/core'
+import { BackgroundImage, Box, Button, Center, Flex, Group, Image, Paper, Stack, Title, Text } from '@mantine/core'
 import React from 'react'
-import Text from '../../components/MantineComponents/Text'
 
 const PageBanner = () => {
     return (
@@ -16,14 +15,14 @@ const PageBanner = () => {
                                 <Text size='md' c={'#fff'}>Founded by visionaries who redefine the potential of technology in achieving business success on both regional and international stages.</Text>
                                 <Group>
                                     <Button color={'#0D60FF'} px={'xl'} radius={'xl'}>Learn More</Button>
-                                    <Button variant='outline' px={'xl'} color='white' radius={'xl'}>Let's Talk</Button>
+                                    <Button variant='outline' px={'xl'} color='white' radius={'xl'}>{"Let's Talk"}</Button>
                                 </Group>
                             </Stack>
                         </Center>
 
                     </Box>
                     <Box style={{ flex: 0.5 }} pos={'relative'} h={'100%'}>
-                        <Image src='/pagebanner1.png' pos={'absolute'} bottom={'-50px'} h={'550px'} />
+                        <Image src='/pagebanner1.png' pos={'absolute'} bottom={'-50px'} h={'550px'} alt='logo' />
                     </Box>
                 </Flex>
             </Paper>

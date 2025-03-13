@@ -1,4 +1,4 @@
-import { Avatar, BackgroundImage, Box, Button, Center, Divider, Flex, Group, Image, Paper, Stack, Text, Title } from '@mantine/core';
+import { Avatar, BackgroundImage, Box, Button, Divider, Flex, Group, Image, Paper, Stack, Text, Title } from '@mantine/core';
 import React from 'react'
 
 type BannerWithOverlapProps = {
@@ -20,7 +20,7 @@ const BannerWithOverlap = ({ leftSideImage, rightSideImage, title, description, 
     return (
         <Flex w={'100%'} h={'100%'}>
             <Box h={'100%'} py={'xl'}>
-                <Image src={leftSideImage} />
+                <Image src={leftSideImage} alt='logo' />
             </Box>
             <Box pos={'relative'}>
                 <BackgroundImage src={rightSideImage} w={'100%'} h={'100%'}>

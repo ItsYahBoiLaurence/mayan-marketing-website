@@ -1,4 +1,4 @@
-import { BackgroundImage, Box, Button, Card, CardSection, Group, Image, Paper, SimpleGrid, Text, Title } from '@mantine/core'
+import { Paper } from '@mantine/core'
 
 
 type CardStylingProp = {

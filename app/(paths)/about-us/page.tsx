@@ -3,7 +3,7 @@ import RightBanner from '@/app/components/Banners/RightBanner'
 import CompanyCard from '@/app/components/Cards/CompanyCard'
 import CompanyTimeLine from '@/app/components/Timeline/CompanyTimeLine'
 import FeatureCard from '@/app/components/Cards/FeatureCard'
-import { Box, Center, Divider, Flex, Group, Image, Paper, SimpleGrid, Stack, Text, Timeline, TimelineItem, Title } from '@mantine/core'
+import { Box, Center, Divider, Flex, Image, SimpleGrid, Stack, Text, Title } from '@mantine/core'
 import React from 'react'
 import SectionBanner from '@/app/components/Banners/SectionBanner'
 import BannerWithOverlap from '@/app/components/Banners/BannerWithOverlap'
@@ -64,7 +64,7 @@ const page = () => {
                     <SimpleGrid cols={3} verticalSpacing={'50'} w={'100%'}>
                         {images.map(({ image, title }) => (
                             <Center key={title}>
-                                <Image src={image} w={150} fit="contain" h={100} />
+                                <Image src={image} w={150} fit="contain" h={100} alt='logo' />
                             </Center>
                         ))}
                     </SimpleGrid>

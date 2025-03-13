@@ -11,8 +11,8 @@ const HomepageBanner = () => {
                 <Center h='90%'>
                     <Stack align="center">
                         <Text ta="center" size="sm" c='white'>Keep Moving Forward.</Text>
-                        <Title ta="center" size="54px" fw={700} c="white" >Let’s scale your <br /> business  <span style={{ color: "#FFCD15" }}>together</span></Title>
-                        <Text ta="center" size="md" c="white">15 L years of combined experience refined to help <br /> you maximize technology's full potential.</Text>
+                        <Title ta="center" size="54px" fw={700} c="white" >{"Let's scale your "}<br /> business  <span style={{ color: "#FFCD15" }}>together</span></Title>
+                        <Text ta="center" size="md" c="white">15 L years of combined experience refined to help <br /> you maximize {"technology's"} full potential.</Text>
                         <Group>
                             <Button radius={'xl'} variant="filled" color="#0D60FF" px={'lg'}>Learn More</Button>
                             <Button radius={'xl'} variant="outline" color="white" px={'lg'}>Learn More</Button>
