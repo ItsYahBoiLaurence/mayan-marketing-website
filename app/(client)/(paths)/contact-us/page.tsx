@@ -1,6 +1,6 @@
 import { Text, BackgroundImage, Box, Center, Flex, Paper, Stack, Title } from '@mantine/core'
 import React from 'react'
-import Form from '@/app/components/Form'
+import Form from '@/app/(client)/components/Form'
 const page = () => {
     return (
         <div>

@@ -9,7 +9,7 @@ const PageBanner = () => {
                     <Box style={{ flex: 0.5 }} h={'100%'}>
                         <Center h={'100%'} px={'xl'}>
                             <Stack w={'80%'}>
-                                <Text size='sm' fw={700}>[ ABOUT US ]</Text>
+                                <Text size='sm' c={'#fff'} fw={700}>[ ABOUT US ]</Text>
                                 <Title c={'#fff'} fw={700}>Mayan Solutions is a Digital Transformation
                                     Consulting Firm</Title>
                                 <Text size='md' c={'#fff'}>Founded by visionaries who redefine the potential of technology in achieving business success on both regional and international stages.</Text>

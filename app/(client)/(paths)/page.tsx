@@ -50,7 +50,7 @@ export default function Home() {
   return (
     <Box w={'100%'}>
       <HomepageBanner />
-      <CardSection />
+      {/* <CardSection /> */}
       <ServiceSection />
       <SectionBanner
         image="./bannerImage.png"

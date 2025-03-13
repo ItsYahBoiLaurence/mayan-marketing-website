@@ -1,13 +1,13 @@
-import PageBanner from '@/app/components/Banners/PageBanner'
-import RightBanner from '@/app/components/Banners/RightBanner'
-import CompanyCard from '@/app/components/Cards/CompanyCard'
-import CompanyTimeLine from '@/app/components/Timeline/CompanyTimeLine'
-import FeatureCard from '@/app/components/Cards/FeatureCard'
+import PageBanner from '@/app/(client)/components/Banners/PageBanner'
+import RightBanner from '@/app/(client)/components/Banners/RightBanner'
+import CompanyCard from '@/app/(client)/components/Cards/CompanyCard'
+import CompanyTimeLine from '@/app/(client)/components/Timeline/CompanyTimeLine'
+import FeatureCard from '@/app/(client)/components/Cards/FeatureCard'
 import { Box, Center, Divider, Flex, Image, SimpleGrid, Stack, Text, Title } from '@mantine/core'
 import React from 'react'
-import SectionBanner from '@/app/components/Banners/SectionBanner'
-import BannerWithOverlap from '@/app/components/Banners/BannerWithOverlap'
-import MayanValuesCard from '@/app/components/Cards/MayanValuesCard'
+import SectionBanner from '@/app/(client)/components/Banners/SectionBanner'
+import BannerWithOverlap from '@/app/(client)/components/Banners/BannerWithOverlap'
+import MayanValuesCard from '@/app/(client)/components/Cards/MayanValuesCard'
 
 const images = [
     {

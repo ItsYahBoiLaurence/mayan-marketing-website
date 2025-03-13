@@ -1,11 +1,23 @@
 import { Paper } from '@mantine/core'
-
+import { client } from '@/sanity/lib/client'
 
 type CardStylingProp = {
     cardStyle: number
 }
 
-const CaseStudyCard = ({ cardStyle }: CardStylingProp) => {
+async function getPosts() {
+    const query = `*[_type == "case-studies"]`
+    return await client.fetch(query)
+}
+
+const CaseStudyCard = async ({ cardStyle }: CardStylingProp) => {
+
+    const post = await getPosts()
+    console.log(`Post: ${post}`)
+    post.map((post: any) => {
+        console.log(`Post: ${post.title}`)
+    })
+
     return (
         <div>
             {cardStyle % 3 === 0 ? (
