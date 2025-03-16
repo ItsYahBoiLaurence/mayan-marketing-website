@@ -4,7 +4,7 @@ import { MantineProvider, createTheme, rem } from '@mantine/core'
 import '@mantine/core/styles.css';
 import Navbar from "./components/NavBar";
 import Footer from './components/Footer'
-
+import Hotjar from "./components/Hotjar";
 
 export const metadata: Metadata = {
   title: "Mayan Solutions",
@@ -12,17 +12,6 @@ export const metadata: Metadata = {
   icons: {
     icon: "/logo.png"
   },
-  other: {
-    "hotjar-script": `(function (c, s, q, u, a, r, e) {
-        c.hj=c.hj||function(){(c.hj.q=c.hj.q||[]).push(arguments)};
-        c._hjSettings = { hjid: a };
-        r = s.getElementsByTagName('head')[0];
-        e = s.createElement('script');
-        e.async = true;
-        e.src = q + c._hjSettings.hjid + u;
-        r.appendChild(e);
-    })(window, document, 'https://static.hj.contentsquare.net/c/csq-', '.js', ${process.env.HOTJAR_ID});`
-  }
 };
 
 
@@ -94,6 +83,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <Hotjar />
+      </head>
       <body>
         <MantineProvider theme={theme}>
           <Navbar />
