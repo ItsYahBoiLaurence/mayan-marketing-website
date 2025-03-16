@@ -27,24 +27,26 @@ const footerNav: footerNavType[] = [
 
 const index = () => {
   return (
-    <Group h='100%' justify='space-around' p='md'>
-      <Text size='xs'>© 2025 Mayan Solutions. All rights reserved </Text>
-      <Image
-        radius="md"
-        h={20}
-        src="/darkLogo.png"
-        alt='logo'
-      />
-      <Group>
-        {footerNav.map(({ title, link }: footerNavType) => (
-          <Text size='xs' key={title}>
-            <Anchor href={link}>
-              {title} |
-            </Anchor>
-          </Text>
-        ))}
+    <footer>
+      <Group h='100%' justify='space-around' p='md'>
+        <Text size='xs'>© 2025 Mayan Solutions. All rights reserved </Text>
+        <Image
+          radius="md"
+          h={20}
+          src="/darkLogo.png"
+          alt='logo'
+        />
+        <Group>
+          {footerNav.map(({ title, link }: footerNavType) => (
+            <Text size='xs' key={title}>
+              <Anchor href={link}>
+                {title} |
+              </Anchor>
+            </Text>
+          ))}
+        </Group>
       </Group>
-    </Group>
+    </footer>
   )
 }
 

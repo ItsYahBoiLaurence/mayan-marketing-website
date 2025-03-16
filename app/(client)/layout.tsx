@@ -85,7 +85,9 @@ export default function RootLayout({
       <body>
         <MantineProvider theme={theme}>
           <Navbar />
-          {children}
+          <section>
+            {children}
+          </section>
           <Footer />
         </MantineProvider>
       </body>

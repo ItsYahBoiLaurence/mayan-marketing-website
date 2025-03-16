@@ -2,7 +2,6 @@ import { Box, Center, Flex, Image, SimpleGrid } from "@mantine/core";
 import HomepageBanner from "../components/Banners/HomepageBanner";
 import CompanyCard from "../components/Cards/CompanyCard";
 import SectionBanner from "../components/Banners/SectionBanner";
-import CardSection from "../components/Sections/CardSection";
 import ServiceSection from "../components/Sections/ServiceSection";
 import RightBanner from "../components/Banners/RightBanner";
 import FAQSection from "../components/Sections/FAQSection";
@@ -50,7 +49,6 @@ export default function Home() {
   return (
     <Box w={'100%'}>
       <HomepageBanner />
-      {/* <CardSection /> */}
       <ServiceSection />
       <SectionBanner
         image="./bannerImage.png"

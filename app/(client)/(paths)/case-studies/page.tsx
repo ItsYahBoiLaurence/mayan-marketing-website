@@ -1,7 +1,16 @@
-import { BackgroundImage, Box, Center, Paper, SimpleGrid, Stack, Text, Title } from '@mantine/core'
+import { BackgroundImage, Box, Center, SimpleGrid, Stack, Text } from '@mantine/core'
 import React from 'react'
 import StudyCard from '@/app/(client)/components/Cards/StudyCard'
 import { client } from '@/sanity/lib/client'
+
+interface Post {
+    _id: string;
+    title: string;
+    image: string;
+    slug: {
+        current: string;
+    };
+}
 
 async function getPosts() {
     const query = `*[_type == "case-studies"]`
@@ -27,7 +36,7 @@ const page = async () => {
             </BackgroundImage>
             <Box my={'md'} w={'80%'} mx={'auto'}>
                 <SimpleGrid cols={3} verticalSpacing={'md'}>
-                    {post.map((post: any) => (
+                    {post.map((post: Post) => (
                         <StudyCard key={post._id} post={post} />
                     ))}
                 </SimpleGrid>

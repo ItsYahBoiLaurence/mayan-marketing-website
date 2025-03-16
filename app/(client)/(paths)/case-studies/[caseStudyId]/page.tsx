@@ -1,9 +1,9 @@
 import React from 'react'
-import { Box, Center, Text, Title } from '@mantine/core'
+import { Box, Title } from '@mantine/core'
 import { client } from '@/sanity/lib/client'
 import { PortableText } from '@portabletext/react'
 
-const CaseStudyPage = async ({ params }: { params: { caseStudyId: string } }) => {
+const CaseStudyPage = async ({ params }: any) => {
     const { caseStudyId } = await params
 
     const query = `*[_type == "case-studies" && _id == "${caseStudyId}"][0]`
