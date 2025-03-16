@@ -16,13 +16,18 @@ export default {
             title: "Description",
             description: "This is a brief description of the Case Study",
             type: 'string',
-            validation: (rule) => rule.min(50).max(250).required()
         }),
         defineField({
             name: "slug",
             title: "Slug",
             type: 'slug',
             options: { source: "title" }
+        }),
+        defineField({
+            type: "reference",
+            to: [{ type: "author" }],
+            name: "author",
+            title: "Author"
         }),
         defineField({
             name: "content",
