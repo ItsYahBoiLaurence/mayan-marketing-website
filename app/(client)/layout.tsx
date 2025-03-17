@@ -5,6 +5,8 @@ import '@mantine/core/styles.css';
 import Navbar from "./components/NavBar";
 import Footer from './components/Footer'
 import Script from 'next/script';
+import '@mantine/notifications/styles.css';
+import { Notifications } from '@mantine/notifications';
 
 export const metadata: Metadata = {
   title: "Mayan Solutions",
@@ -100,6 +102,7 @@ export default function RootLayout({
       </head>
       <body>
         <MantineProvider theme={theme}>
+          <Notifications />
           <Navbar />
           <section>
             {children}
