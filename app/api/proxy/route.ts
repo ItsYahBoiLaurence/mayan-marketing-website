@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
 // Google Apps Script URL - this needs to be the DEPLOYED WEB APP URL, not the script editor URL
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw6PrFyohvvVWcgA8q9j7J07yTswXrfxHLvR1VX4GIJwC2OY8BqxEGHQwF8suAdS3fcGA/exec';
+const GOOGLE_SCRIPT_URL = process.env.GOOGLE_SCRIPT_URL;
 
 // Simple memory-based rate limiting (resets on server restart)
 const RATE_LIMIT_WINDOW = 60 * 1000; // 1 minute in milliseconds
@@ -108,7 +108,7 @@ async function fetchFromGoogleScript(method: string, params: any, ip: string) {
         }
 
         // Perform the request
-        const response = await fetch(url, options);
+        const response = await fetch(url as string, options);
         clearTimeout(timeoutId); // Clear timeout on successful response
 
         // Process response
