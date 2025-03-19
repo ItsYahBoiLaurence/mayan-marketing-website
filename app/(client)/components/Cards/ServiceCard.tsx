@@ -8,7 +8,7 @@ type ServiceCardProps = {
 
 const ServiceCard = ({ title, description }: ServiceCardProps) => {
     return (
-        <Paper>
+        <Paper p={'xl'}>
             <Stack justify='center' gap={'xs'}>
                 <ColorSwatch color={'#EBEBEB'} withShadow={false} />
                 <Text size='lg' fw={700}>{title}</Text>

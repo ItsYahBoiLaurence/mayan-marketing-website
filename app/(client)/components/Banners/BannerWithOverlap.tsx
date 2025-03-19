@@ -19,13 +19,13 @@ type BannerWithOverlapProps = {
 const BannerWithOverlap = ({ leftSideImage, rightSideImage, title, description, buttonText, listData, opacity, rightColor, buttonColor }: BannerWithOverlapProps) => {
     return (
         <Flex w={'100%'} h={'100%'}>
-            <Box h={'100%'} py={'xl'}>
+            <Box h={'100%'} py={'xl'} flex={0.6}>
                 <Image src={leftSideImage} alt='logo' />
             </Box>
-            <Box pos={'relative'}>
+            <Box pos={'relative'} flex={0.4}>
                 <BackgroundImage src={rightSideImage} w={'100%'} h={'100%'}>
-                    <Paper radius={"none"} bg={rightColor} p={'xl'} opacity={opacity ?? 0.95} h={'100%'} style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-                        <Stack gap={'sm'}>
+                    <Paper radius={"none"} bg={rightColor} p={'xl'} opacity={opacity ?? 0.95} h={'100%'} style={{ display: "flex", justifyContent: "flex-start", alignItems: "center" }}>
+                        <Stack gap={'xl'} w={'70%'} >
                             <Title fw={700}>{title}</Title>
                             <Text>{description}</Text>
                             {listData && (
@@ -46,7 +46,7 @@ const BannerWithOverlap = ({ leftSideImage, rightSideImage, title, description, 
                             )}
 
 
-                            {buttonText && <Button color={buttonColor ?? 'black'} autoContrast>{buttonText}</Button>}
+                            {buttonText && <Button color={buttonColor ?? 'black'} radius={'xl'} autoContrast>{buttonText}</Button>}
                         </Stack>
                     </Paper>
                 </BackgroundImage>

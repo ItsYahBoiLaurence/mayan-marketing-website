@@ -9,10 +9,6 @@ const navItems = [
         href: '/our-services'
     },
     {
-        label: 'Our Process',
-        href: '/our-process'
-    },
-    {
         label: 'Case Studies',
         href: '/case-studies'
     },
