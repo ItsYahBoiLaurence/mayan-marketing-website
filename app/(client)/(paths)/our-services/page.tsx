@@ -99,6 +99,7 @@ const page = () => {
                 </SimpleGrid>
             </Box>
 
+            <CarouselBanner />
 
             <BannerWithOverlap
                 leftSideImage="/bannerOverlap.png"
