@@ -1,6 +1,5 @@
 import { BackgroundImage, Box, Button, Center, Flex, Group, Paper, Stack, Title, Text, Image, SimpleGrid, Container } from '@mantine/core'
 import React from 'react'
-import PageBanner from '../../components/Banners/PageBanner'
 import ServiceCard from '../../components/Cards/ServiceCard'
 import SectionBanner from '../../components/Banners/SectionBanner'
 import BannerWithOverlap from '../../components/Banners/BannerWithOverlap'
