@@ -5,6 +5,7 @@ import SectionBanner from "../components/Banners/SectionBanner";
 import ServiceSection from "../components/Sections/ServiceSection";
 import RightBanner from "../components/Banners/RightBanner";
 import FAQSection from "../components/Sections/FAQSection";
+import CaseStudyCard from "../components/Cards/CaseStudyCard";
 
 
 export default function Home() {
@@ -46,9 +47,37 @@ export default function Home() {
 
   ]
 
+
+  const caseStudies = [
+    {
+      image: "/caseStudy1.png",
+      title: "From Insights to Impact.",
+      description: "Our clients achieve real business results with Mayan Solutions’ expertise in strategy, technology services, and operations. From aligning tech initiatives with business goals to optimizing processes and integrating scalable solutions, we help businesses drive measurable growth.",
+      buttonDesc: "Our Case Studies"
+    },
+    {
+      image: "/caseStudy1.png",
+      title: "From Insights to Impact.",
+      description: "Our clients achieve real business results with Mayan Solutions’ expertise in strategy, technology services, and operations. From aligning tech initiatives with business goals to optimizing processes and integrating scalable solutions, we help businesses drive measurable growth.",
+      buttonDesc: "Our Case Studies"
+    },
+    {
+      image: "/caseStudy1.png",
+      title: "Enterprise AI for Customer growth.",
+      description: "Unlock AI-driven insights to accelerate customer acquisition and retention. Mayan Solutions empowers businesses with intelligent automation and predictive analytics.",
+      buttonDesc: "Learn More"
+    },
+
+  ]
+
   return (
     <Box w={'100%'}>
       <HomepageBanner />
+      <Flex w={'80%'} mx={'auto'} direction={'row'} gap={'20'} mt={'-200px'} align={'center'} justify={'center'}>
+        {caseStudies.map(({ image, title, description, buttonDesc }, index) => (
+          <CaseStudyCard key={title} cardStyle={index} image={image} title={title} description={description} buttonDesc={buttonDesc} />
+        ))}
+      </Flex>
       <ServiceSection />
       <SectionBanner
         image="./bannerImage.png"
