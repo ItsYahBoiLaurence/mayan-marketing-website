@@ -56,7 +56,7 @@ export default function Home() {
       buttonDesc: "Our Case Studies"
     },
     {
-      title: "From Insights to Impact.",
+      title: "Digital enablement, user engagement",
       description: "Empowering businesses with the right technology and strategy to enhance user experiences, streamline operations, and drive measurable results.",
       buttonDesc: "Our Case Studies",
       image: '/laptop.png'

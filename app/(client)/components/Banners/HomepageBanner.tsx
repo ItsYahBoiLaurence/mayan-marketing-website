@@ -15,7 +15,7 @@ const HomepageBanner = () => {
                         <Text ta="center" size="md" c="white">15 L years of combined experience refined to help <br /> you maximize {"technology's"} full potential.</Text>
                         <Group>
                             <Button radius={'xl'} variant="filled" color="#0D60FF" px={'lg'}>Learn More</Button>
-                            <Button radius={'xl'} variant="outline" color="white" px={'lg'}>Learn More</Button>
+                            <Button radius={'xl'} variant="outline" color="white" px={'lg'}>{`Let's Talk`}</Button>
                         </Group>
                     </Stack>
                 </Center >
