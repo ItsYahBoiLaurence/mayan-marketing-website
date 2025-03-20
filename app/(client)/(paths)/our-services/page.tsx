@@ -67,10 +67,10 @@ const techStack = [
 const page = () => {
     return (
         <Box>
-            <BackgroundImage src='/' w={'100%'} h={'80vh'} mb={'60px'}>
+            <BackgroundImage src='/bgBanner.png' w={'100%'} h={'80vh'} mb={'60px'}>
                 <Paper h={"100%"} w={"100%"} bg={'#042161'} opacity={0.95}>
                     <Flex w={"100%"} h={'100%'} justify={'center'} align={'center'}>
-                        <Box style={{ flex: 0.5 }} h={'100%'}>
+                        <Box style={{ flex: 0.4 }} h={'100%'}>
                             <Center h={'100%'} px={'xl'}>
                                 <Stack w={'80%'}>
                                     <Title c={'#fff'} fw={700}>Grow your Digital Product with your own Mobile App</Title>
@@ -83,8 +83,8 @@ const page = () => {
                             </Center>
 
                         </Box>
-                        <Box style={{ flex: 0.5 }} pos={'relative'} h={'100%'}>
-                            <Image src='/serviceCp.png' pos={'absolute'} bottom={'-50px'} h={'550px'} alt='logo' />
+                        <Box style={{ flex: 0.6 }} pos={'relative'} h={'100%'}>
+                            <Image src='/CPs.png' pos={'absolute'} bottom={'-100px'} h={'700px'} alt='logo' />
                         </Box>
                     </Flex>
                 </Paper>
@@ -99,6 +99,24 @@ const page = () => {
             </Box>
 
             <CarouselBanner />
+
+            <Stack w={'80%'} mx={'auto'} align={'center'} py={'xl'} my={'xl'} gap={'xl'}>
+                <Flex direction={'row'} gap={'xl'}>
+                    <Stack flex={0.4} align={'start'}>
+                        <Title>
+                            Your web app is not just a product but a driver of strategic growth
+                        </Title>
+                        <Text>Transform your app ideas into fully functional, dynamic solutions that deliver a seamless, engaging experience, boosting user engagement and strengthening your competitive edge.</Text>
+                        <Button>Let's Talk</Button>
+                    </Stack>
+                    <Box flex={0.6}>
+                        <Image src={'/servicesImg.png'} />
+                    </Box>
+                </Flex>
+                <Box w={'80%'} >
+                    <Image src='/servicesImg2.png' radius={'lg'} />
+                </Box>
+            </Stack>
 
             <BannerWithOverlap
                 leftSideImage="/bannerOverlap.png"
