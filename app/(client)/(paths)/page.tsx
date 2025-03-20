@@ -56,10 +56,10 @@ export default function Home() {
       buttonDesc: "Our Case Studies"
     },
     {
-      image: "/caseStudy1.png",
       title: "From Insights to Impact.",
-      description: "Our clients achieve real business results with Mayan Solutions’ expertise in strategy, technology services, and operations. From aligning tech initiatives with business goals to optimizing processes and integrating scalable solutions, we help businesses drive measurable growth.",
-      buttonDesc: "Our Case Studies"
+      description: "Empowering businesses with the right technology and strategy to enhance user experiences, streamline operations, and drive measurable results.",
+      buttonDesc: "Our Case Studies",
+      image: '/laptop.png'
     },
     {
       image: "/caseStudy1.png",

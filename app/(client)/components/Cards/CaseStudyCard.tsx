@@ -1,4 +1,4 @@
-import { BackgroundImage, Box, Button, ColorSwatch, Paper, Stack, Text, Title } from '@mantine/core'
+import { BackgroundImage, Box, Button, ColorSwatch, Image, Paper, Stack, Text, Title } from '@mantine/core'
 
 type CardStylingProp = {
     cardStyle: number
@@ -8,7 +8,7 @@ type CardStylingProp = {
     buttonDesc: string
 }
 
-const CaseStudyCard = async ({ cardStyle, title, description, buttonDesc }: CardStylingProp) => {
+const CaseStudyCard = async ({ cardStyle, title, description, buttonDesc, image }: CardStylingProp) => {
 
     return (
         <>
@@ -23,13 +23,19 @@ const CaseStudyCard = async ({ cardStyle, title, description, buttonDesc }: Card
                     </Paper>
                 </BackgroundImage>
             ) : cardStyle % 3 === 1 ? (
-                <BackgroundImage src={'/bgBanner3'} style={{ zIndex: 1 }} flex={0.33} h={500} radius={'md'}>
-                    <Paper bg={'blue'} w={'100%'} h={'100%'} style={{ zIndex: 1 }} radius={'md'}>
-                        <Stack>
-                            asd
-                        </Stack>
-                    </Paper>
-                </BackgroundImage>
+
+                <Paper bg={'#EFEFEF'} w={'100%'} style={{ zIndex: 1, overflow: 'hidden' }} flex={0.33} h={500} radius={'md'}>
+                    <Image src={image} alt={title} mt={'-80px'} />
+                    <Stack mt={'-50px'} px={'xl'} align={'start'}>
+                        <Title fw={700}>
+                            {title}
+                        </Title>
+                        <Text>
+                            {description}
+                        </Text>
+                        <Button color={'#1e1e1e'} autoContrast radius={'xl'}>{buttonDesc}</Button>
+                    </Stack>
+                </Paper >
             ) : (
                 <BackgroundImage src={'/bgBannerPerson.png'} style={{ zIndex: 1 }} flex={0.33} h={450} radius={'md'}>
                     <Paper w={'100%'} h={'100%'} style={{ zIndex: 1, background: 'linear-gradient(to top, rgba(255, 206, 19, 1), rgba(255, 206, 19, 0.80))' }} radius={'md'}>
