@@ -1,5 +1,4 @@
 import { BackgroundImage, Box, Button, ColorSwatch, Paper, Stack, Text, Title } from '@mantine/core'
-import { client } from '@/sanity/lib/client'
 
 type CardStylingProp = {
     cardStyle: number
@@ -9,7 +8,7 @@ type CardStylingProp = {
     buttonDesc: string
 }
 
-const CaseStudyCard = async ({ cardStyle, image, title, description, buttonDesc }: CardStylingProp) => {
+const CaseStudyCard = async ({ cardStyle, title, description, buttonDesc }: CardStylingProp) => {
 
     return (
         <>
