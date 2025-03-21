@@ -5,34 +5,39 @@ import { Avatar, Group, Paper, SimpleGrid, Text } from '@mantine/core';
 const data = [
     {
         icon: <IconBulb />,
-        title: "Wisdom",
-        description: "We strive to bring new and creative ideas to life."
+        title: "Pride",
+        description: "I take pride in the work that I have done, not myself."
     },
     {
         icon: <IconShieldPlus />,
-        title: "Reliability",
-        description: "We prioritize the safety and security of our clients."
+        title: "Happiness",
+        description: "I find happiness in one’s work and work environment"
     },
     {
         icon: <IconPuzzle />,
-        title: "Collaboration",
-        description: "We believe in the power of working together."
-    },
-    {
-        icon: <IconHeartHandshake />,
-        title: "Collaboration",
-        description: "We uphold honesty and strong moral principles."
+        title: "Resourcefulness",
+        description: "I shamelessly copy what works "
     },
     {
         icon: <IconTrendingUp />,
-        title: "Growth",
-        description: "We are committed to continuous improvement and growth."
-    }
+        title: "Showmanship",
+        description: "I always go for WOW"
+    },
+    {
+        icon: <IconTrendingUp />,
+        title: "Efficiency",
+        description: "I ruthlessly remove what doesn’t work"
+    },
+    {
+        icon: <IconTrendingUp />,
+        title: "Belongingness",
+        description: "I am part of Mayan and Mayan is a part of me"
+    },
 ]
 
 const MayanValuesCard = () => {
     return (
-        <SimpleGrid cols={2}>
+        <SimpleGrid cols={2} flex={0.6} verticalSpacing={'lg'} spacing={'lg'}>
             {data.map((item, index) => (
                 <Paper key={index} bg={'#F6F6F6'} radius={'md'} w={'100%'} p={'xl'}>
                     <Group mb="md">

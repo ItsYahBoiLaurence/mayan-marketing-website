@@ -8,19 +8,19 @@ const FeatureCard = () => {
             id: 1,
             catching_text: '15+',
             catching_text_desc: 'Years of Product Experience',
-            description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium'
+            description: 'Years of combined expertise in building and scaling technology solutions that drive business success.'
         },
         {
             id: 2,
             catching_text: '500%',
             catching_text_desc: 'of Average ROI for our clients',
-            description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium'
+            description: 'We deliver outcome-driven strategies, ensuring measurable growth and maximum returns on technology investments.'
         },
         {
             id: 3,
             catching_text: '₱100+',
             catching_text_desc: 'Million of Tech Built',
-            description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium'
+            description: "From enterprise solutions to scalable digital products, we've developed high-value technology that fuels business transformation."
         },
     ]
 

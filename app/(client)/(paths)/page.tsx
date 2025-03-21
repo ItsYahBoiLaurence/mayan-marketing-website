@@ -82,7 +82,7 @@ export default function Home() {
       <SectionBanner
         image="./bannerImage.png"
         title={"Share your stories. Let's Get In Touch"}
-        subDescription={"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium"}
+        subDescription={"Every business has a unique journey. Let’s discuss your challenges, opportunities, to determine the right tech strategy that will drive your success."}
         buttonDesc={"Book a discovery call"}
         textColor={'white'}
       />
@@ -104,7 +104,7 @@ export default function Home() {
             bg="#FBCA12"
             textColor={'black'}
             title={"Our tech stack and growth partners"}
-            subDescription={"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantiumm"}
+            subDescription={"Powering innovation and efficiency with industry-leading tools and platforms. We collaborate with top technology providers to deliver seamless integration, smarter workflows, and scalable solutions tailored to your business needs."}
           />
         </Box>
       </Flex>

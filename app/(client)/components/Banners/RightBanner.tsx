@@ -1,5 +1,6 @@
 import { BackgroundImage, Button, Paper, Stack, Text } from '@mantine/core'
 import React from 'react'
+import CustomButton from '../Button/CustomButton'
 
 type SectionBannerType = {
     title: string,
@@ -17,7 +18,7 @@ const RightBanner = ({ title, subDescription, buttonDesc, bg, textColor, opacity
                 <Stack w={'60%'}>
                     <Text size={"42px"} fw={700} c={textColor}>{title}</Text>
                     <Text size='sm' c={textColor}>{subDescription}</Text>
-                    {buttonDesc && (<Button radius={'xl'} color='jonquil' c={'black'}>{buttonDesc}</Button>)}
+                    {buttonDesc && (<CustomButton radius={'xl'} color='jonquil' c={'black'} to={'/contact-us'}>{buttonDesc}</CustomButton>)}
                 </Stack>
             </Paper>
         </BackgroundImage>

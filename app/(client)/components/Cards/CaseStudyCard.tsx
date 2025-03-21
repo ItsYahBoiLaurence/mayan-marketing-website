@@ -1,4 +1,5 @@
 import { BackgroundImage, Box, Button, ColorSwatch, Image, Paper, Stack, Text, Title } from '@mantine/core'
+import CustomButton from '../Button/CustomButton'
 
 type CardStylingProp = {
     cardStyle: number
@@ -18,7 +19,7 @@ const CaseStudyCard = async ({ cardStyle, title, description, buttonDesc, image 
                         <Stack p={'xl'} gap={'xl'} align={'start'}>
                             <Title fw={700} c={'white'}>{title}</Title>
                             <Text c={'white'}>{description}</Text>
-                            <Button color={'#FFCE13'} autoContrast radius={'xl'}>{buttonDesc}</Button>
+                            <CustomButton color={'#FFCE13'} autoContrast radius={'xl'} to="/case-studies">{buttonDesc}</CustomButton>
                         </Stack>
                     </Paper>
                 </BackgroundImage>
@@ -33,7 +34,7 @@ const CaseStudyCard = async ({ cardStyle, title, description, buttonDesc, image 
                         <Text>
                             {description}
                         </Text>
-                        <Button color={'#1e1e1e'} autoContrast radius={'xl'}>{buttonDesc}</Button>
+                        <CustomButton color={'#1e1e1e'} autoContrast radius={'xl'} to="/case-studies">{buttonDesc}</CustomButton>
                     </Stack>
                 </Paper >
             ) : (
@@ -43,7 +44,7 @@ const CaseStudyCard = async ({ cardStyle, title, description, buttonDesc, image 
                             <ColorSwatch color='#FFFFFF' withShadow={false} size={50} radius={'lg'} />
                             <Title fw={700} >{title}</Title>
                             <Text >{description}</Text>
-                            <Button color={'#1e1e1e'} autoContrast radius={'xl'}>{buttonDesc}</Button>
+                            <CustomButton color={'#1e1e1e'} autoContrast radius={'xl'} to="/case-studies">{buttonDesc}</CustomButton>
                         </Stack>
                     </Paper>
                 </BackgroundImage >

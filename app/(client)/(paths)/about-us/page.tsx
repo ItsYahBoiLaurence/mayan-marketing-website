@@ -75,15 +75,15 @@ const page = () => {
                         bg="#1E1E1E"
                         textColor={'white'}
                         title={"Our Trusted Partners"}
-                        subDescription={"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium"}
+                        subDescription={"Powering innovation and efficiency with industry-leading tools and platforms. We collaborate with top technology providers to deliver seamless integration, smarter workflows, and scalable solutions tailored to your business needs."}
                     />
                 </Box>
             </Flex>
-            <Flex w={'80%'} mx={'auto'} justify={'start'} direction={'row'} gap={'xl'} my={'xl'}>
+            <Flex w={'80%'} mx={'auto'} justify={'start'} direction={'row'} gap={'xl'} my={'xl'} py={'xl'}>
                 <Stack flex={0.4}>
                     <Text size='sm'>[ Our Purpose ]</Text>
                     <Title fw={700}>When, How and Why we Started.</Title>
-                    <Text>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</Text>
+                    {/* <Text>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</Text> */}
                 </Stack>
                 <Box w={'100%'} style={{ flex: 0.6 }}><CompanyTimeLine /></Box>
             </Flex>
@@ -91,31 +91,21 @@ const page = () => {
                 leftSideImage="/bannerOverlap.png"
                 rightSideImage="/bgBanner.png"
                 title="Our Leaders. Experts, Not Executives."
-                description="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium"
+                description="Mayan Solutions is led by seasoned strategists and technologists who work hands-on with clients to deliver tangible, results-driven solutions."
                 rightColor='#FBCA12'
                 listData={[
                     {
                         name: "Kim Montano",
                         position: "Chief Executive Officer",
-                    },
-                    {
-                        name: "Jason Magpantay",
-                        position: "Chief Technology Officer",
-                    },
-                    {
-                        name: "Maureen Imperial",
-                        position: "Chief Operating Officer",
-                    },
-                    {
-                        name: "Margarita Sison",
-                        position: "Chief Financial Officer",
+                        ceo_description: "Founded in 2022 seasoned tech entrepreneur Kim Montano, Mayan Solutions confronts a key tech challenge; aligning technology with business goals. With a rich history in leading tech ventures and product management, Kim established Mayan Solutions to offer a unique blend of technical savvy and strategic insight. ",
+                        company_line: 'We seamlessly fuse the expertise of top-notch software engineers with the strategic acumen of business consultants, confidently steering complex corporate decisions. '
                     },
                 ]}
             />
-            <Flex w={'80%'} mx={'auto'} justify={'start'} direction={'row'} gap={'xl'} my={'xxl'} >
-                <Stack>
-                    <Title fw={700}>Our Values Guided Us To Do Better Everyday.</Title>
-                    <Text size='sm'>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</Text>
+            <Flex w={'80%'} mx={'auto'} justify={'start'} direction={'row'} gap={'xl'} my={'xxl'} py={'xl'} >
+                <Stack flex={0.4}>
+                    <Title fw={700}>Our Values: Driving Excellence Every Day</Title>
+                    <Text size='sm'>We are committed to delivering strategic, results-driven technology solutions that empower businesses to grow, scale, and innovate. Our values drive us to prioritize impact over output, collaboration over transactions, and long-term success over short-term fixes.</Text>
                 </Stack>
                 <MayanValuesCard />
             </Flex>

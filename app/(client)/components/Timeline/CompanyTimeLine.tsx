@@ -4,18 +4,16 @@ import React from 'react'
 const timelineItems = [
     {
         id: 1,
-        title: 'Founded in 2022 by seasoned tech entrepreneur Kim Montano',
-        description: 'Mayan Solutions confronts a tech challenge; aligning technology with business goals. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium'
+        description: 'Mayan Solutions is a digital transformation consulting firm founded by seasoned techpreneurs determined to redefine the potential of technology in achieving business success on both regional and international stages. '
     },
     {
         id: 2,
-        title: 'Founded in 2022 by seasoned tech entrepreneur Kim Montano',
-        description: 'Mayan Solutions confronts a tech challenge; aligning technology with business goals. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium'
+        description: 'Our powerhouse of tech expertise and strategic business insights empowers our clients to achieve their most critical objectives. This is the benchmark of our success. '
     },
     {
         id: 3,
-        title: 'Founded in 2022 by seasoned tech entrepreneur Kim Montano',
-        description: 'Mayan Solutions confronts a tech challenge; aligning technology with business goals. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium'
+
+        description: 'Together, we unlock transformative solutions that no one can achieve alone. '
     }
 ]
 const CompanyTimeLine = () => {
@@ -24,7 +22,6 @@ const CompanyTimeLine = () => {
             <Timeline>
                 {timelineItems.map(item => (
                     <TimelineItem key={item.id}>
-                        <Text size='lg' fw={700}>{item.title}</Text>
                         <Text>{item.description}</Text>
                     </TimelineItem>
                 ))}
