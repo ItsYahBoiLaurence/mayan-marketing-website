@@ -29,7 +29,7 @@ const BannerWithOverlap = ({ leftSideImage, rightSideImage, title, description, 
             <Box pos={'relative'} flex={0.4}>
                 <BackgroundImage src={rightSideImage} w={'100%'} h={'100%'}>
                     <Paper radius={"none"} bg={rightColor} p={'xl'} opacity={opacity ?? 0.95} h={'100%'} style={{ display: "flex", justifyContent: "flex-start", alignItems: "center" }}>
-                        <Stack gap={'xl'} w={'100%'} >
+                        <Stack gap={'xl'} w={'100%'} align={'start'}>
                             <Title fw={700}>{title}</Title>
                             <Text>{description}</Text>
                             {listData && (
@@ -55,7 +55,7 @@ const BannerWithOverlap = ({ leftSideImage, rightSideImage, title, description, 
                                     </Flex>
                                 </Box>
                             )}
-                            {buttonText && <Button color={buttonColor ?? 'black'} radius={'xl'} autoContrast>{buttonText}</Button>}
+                            {buttonText && <CustomButton color={buttonColor ?? 'black'} radius={'xl'} autoContrast to={'/contact-us'}>{buttonText}</CustomButton>}
                         </Stack>
                     </Paper>
                 </BackgroundImage>

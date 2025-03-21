@@ -5,39 +5,26 @@ import SectionBanner from '../../components/Banners/SectionBanner'
 import BannerWithOverlap from '../../components/Banners/BannerWithOverlap'
 import TechCard from '../../components/Cards/TechCard'
 import CarouselBanner from '../../components/Banners/CarouselBanner'
+import { IconUser } from '@tabler/icons-react';
+import { IconCpu2 } from '@tabler/icons-react';
+import { IconPresentation } from '@tabler/icons-react';
 
 const services = [
     {
         id: 1,
-        title: 'Customer apps',
+        title: 'Customer-facing apps',
         description: 'Enhance your customer experience with a faster, more intuitive interface. The result? More engaged customers and increased retention.',
     },
     {
         id: 2,
-        title: 'Customer apps',
-        description: 'Enhance your customer experience with a faster, more intuitive interface. The result? More engaged customers and increased retention.',
+        title: 'Revenue Driving Solutions',
+        description: 'Build digital product that open your revenue streams. Provide value to your users and growth for your business. ',
     },
     {
         id: 3,
-        title: 'Customer apps',
-        description: 'Enhance your customer experience with a faster, more intuitive interface. The result? More engaged customers and increased retention.',
+        title: 'Enterprise AI Solutions',
+        description: 'Digitize business processes to empower your field operations. Tap the power of data to understand your customers and push your social responsibility and sustainability initiatives. ',
     },
-    {
-        id: 4,
-        title: 'Customer apps',
-        description: 'Enhance your customer experience with a faster, more intuitive interface. The result? More engaged customers and increased retention.',
-    },
-    {
-        id: 5,
-        title: 'Customer apps',
-        description: 'Enhance your customer experience with a faster, more intuitive interface. The result? More engaged customers and increased retention.',
-    },
-    {
-        id: 6,
-        title: 'Customer apps',
-        description: 'Enhance your customer experience with a faster, more intuitive interface. The result? More engaged customers and increased retention.',
-    },
-
 ]
 
 
@@ -90,10 +77,10 @@ const page = () => {
                 </Paper>
             </BackgroundImage>
 
-            <Box w={'80%'} mx={'auto'}>
+            <Box w={'80%'} mx={'auto'} my={'xl'} py={'xl'}>
                 <SimpleGrid cols={3} verticalSpacing={'xl'} spacing={'xl'}>
                     {services.map(({ id, title, description }) => (
-                        <ServiceCard key={id} title={title} description={description} />
+                        <ServiceCard key={id} id={id} title={title} description={description} />
                     ))}
                 </SimpleGrid>
             </Box>
@@ -145,7 +132,7 @@ const page = () => {
             <SectionBanner
                 image="./bannerImage.png"
                 title={"Share your stories. Let's Get In Touch"}
-                subDescription={"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium"}
+                subDescription={"Every business has a unique journey. Let’s discuss your challenges, opportunities, to determine the right tech strategy that will drive your success."}
                 buttonDesc={"Book a discovery call"}
                 textColor={'white'}
             />

@@ -1,6 +1,7 @@
 import { BackgroundImage, Box, Button, Center, Flex, Image, Paper, Stack, Text, Title } from '@mantine/core'
 import React from 'react'
 import Marquee from 'react-fast-marquee'
+import CustomButton from '../Button/CustomButton'
 
 
 const items = [
@@ -48,7 +49,7 @@ const CarouselBanner = () => {
                             <Stack align='start' gap={'xl'} justify='start' w={'50%'}>
                                 <Title fw={700} c={'white'}>Crafting Seamless Digital Experiences, One Website at a Time.</Title>
                                 <Text c={'white'}>Transform your online platform into a powerful tool for engaging customers, driving leads and sales, and nurturing them throughout their journey with our proven 3DX process.</Text>
-                                <Button color={'#FFCE13'} radius={'xl'} c={'black'}>Let's Talk</Button>
+                                <CustomButton color={'#FFCE13'} radius={'xl'} c={'black'} to={'/contact-us'}>Let's Talk</CustomButton>
                             </Stack>
                         </Center>
                     </Paper>
