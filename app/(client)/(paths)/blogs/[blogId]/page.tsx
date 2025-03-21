@@ -4,8 +4,8 @@ import { BackgroundImage, Box, Container, Flex, Image, Paper, Stack, Text, Title
 import { PortableText } from '@portabletext/react'
 import React from 'react'
 
-const page = async ({ params }: { params: { blogId: string } }) => {
-    const { blogId } = await params
+const page = async ({ params }: any) => {
+    const { blogId } = params
     console.log(blogId)
 
     const query = `*[_id == "${blogId}"]{

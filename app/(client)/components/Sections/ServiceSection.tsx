@@ -42,7 +42,7 @@ const ServiceSection = () => {
             </Box>
             <SimpleGrid cols={2} verticalSpacing={'xl'} spacing={'xl'}>
                 {services.map(({ id, title, description }) => (
-                    <ServiceCard key={id} title={title} description={description} />
+                    <ServiceCard key={id} id={id} title={title} description={description} />
                 ))}
             </SimpleGrid>
         </Flex>
