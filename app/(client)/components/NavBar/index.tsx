@@ -19,6 +19,10 @@ const navItems = [
     {
         label: 'Contact Us',
         href: '/contact-us'
+    },
+    {
+        label: 'Blogs',
+        href: '/blogs'
     }
 ]
 
