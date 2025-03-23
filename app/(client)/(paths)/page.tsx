@@ -94,7 +94,6 @@ export default function Home() {
           />
         ))}
       </Flex>
-
       {/* Mobile */}
       <SimpleGrid cols={1} w={"90%"} mx={"auto"} mt={"-100px"} hiddenFrom="md">
         {caseStudies.map(({ image, title, description, buttonDesc }, index) => (
@@ -109,8 +108,8 @@ export default function Home() {
         ))}
       </SimpleGrid>
       {/* ------------------------------------------------------------------------------ */}
-
       <ServiceSection />
+      {/* ----------------------------------------------------------------------------- */}
       <SectionBanner
         image="./bannerImage.png"
         title={"Share your stories. Let's Get In Touch"}
@@ -120,8 +119,9 @@ export default function Home() {
         buttonDesc={"Book a discovery call"}
         textColor={"white"}
       />
+      {/* ------------------------------------------------------------------------------ */}
       <CompanyCard />
-
+      {/* ------------------------------------------------------------------------------ */}
       {/* Tech Stack Section */}
       <Flex>
         <Center bg={"black"} w={"100%"} style={{ flex: 0.6 }}>
@@ -144,9 +144,10 @@ export default function Home() {
           />
         </Box>
       </Flex>
-
+      {/* ------------------------------------------------------------------------------ */}
       {/* FAQ Section */}
       <FAQSection />
+      {/* ------------------------------------------------------------------------------ */}
     </Box>
   );
 }
