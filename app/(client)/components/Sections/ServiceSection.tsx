@@ -1,53 +1,93 @@
-import { Box, Flex, SimpleGrid, Stack, Text, Title } from '@mantine/core'
-import React from 'react'
-import ServiceCard from '../Cards/ServiceCard'
-
+import {
+  Box,
+  Container,
+  Flex,
+  SimpleGrid,
+  Stack,
+  Text,
+  Title,
+} from "@mantine/core";
+import React from "react";
+import ServiceCard from "../Cards/ServiceCard";
 
 const services = [
-    {
-        id: 1,
-        title: 'Analytics for employee well-being',
-        description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium',
-    },
-    {
-        id: 2,
-        title: 'Design and integration for success and bigger impact',
-        description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium',
-    },
-    {
-        id: 3,
-        title: 'Custom Web App Development Services',
-        description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium',
-    },
-    {
-        id: 4,
-        title: 'Tech Strategy powered by data and user feedback',
-        description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium',
-    },
-
-]
+  {
+    id: 1,
+    title: "Analytics for employee well-being",
+    description:
+      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
+  },
+  {
+    id: 2,
+    title: "Design and integration for success and bigger impact",
+    description:
+      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
+  },
+  {
+    id: 3,
+    title: "Custom Web App Development Services",
+    description:
+      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
+  },
+  {
+    id: 4,
+    title: "Tech Strategy powered by data and user feedback",
+    description:
+      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
+  },
+];
 
 const ServiceSection = () => {
-    return (
-        <Flex w={'80%'} mx={'auto'} p={'xl'} gap={'md'}>
-            <Box >
-                <Stack justify='start'>
-                    <Title order={2} fw={700}>Your blueprint
-                        for digital implementation, simplified.
-                    </Title>
-                    <Text size='xs'>
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
-                    </Text>
-                </Stack>
-            </Box>
-            <SimpleGrid cols={2} verticalSpacing={'xl'} spacing={'xl'}>
-                {services.map(({ id, title, description }) => (
-                    <ServiceCard key={id} id={id} title={title} description={description} />
-                ))}
-            </SimpleGrid>
-        </Flex>
+  return (
+    <>
+      <Flex w={"80%"} mx={"auto"} p={"xl"} gap={"md"} visibleFrom="md">
+        <Box>
+          <Stack justify="start">
+            <Title order={2} fw={700}>
+              Your blueprint for digital implementation, simplified.
+            </Title>
+            <Text size="xs">
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+              accusantium doloremque laudantium
+            </Text>
+          </Stack>
+        </Box>
+        <SimpleGrid cols={2} verticalSpacing={"xl"} spacing={"xl"}>
+          {services.map(({ id, title, description }) => (
+            <ServiceCard
+              key={id}
+              id={id}
+              title={title}
+              description={description}
+            />
+          ))}
+        </SimpleGrid>
+      </Flex>
 
-    )
-}
+      <Container w={"90%"} mx={"auto"} hiddenFrom="md" my={"xl"}>
+        <Stack justify="start" gap={"sm"} py={"xl"}>
+          <Title ta={"center"} order={2} fw={700}>
+            Your blueprint for digital implementation, simplified.
+          </Title>
+          <Text ta={"center"} size="xs">
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+            accusantium doloremque laudantium
+          </Text>
+        </Stack>
 
-export default ServiceSection
+        <SimpleGrid cols={1} verticalSpacing={"xl"} spacing={"xl"}>
+          {services.map(({ id, title, description }) => (
+            <ServiceCard
+              key={id}
+              id={id}
+              title={title}
+              description={description}
+            />
+          ))}
+        </SimpleGrid>
+      </Container>
+    </>
+  );
+};
+
+export default ServiceSection;
