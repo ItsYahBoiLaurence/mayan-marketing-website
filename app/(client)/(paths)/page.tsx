@@ -1,4 +1,15 @@
-import { Box, Center, Flex, Image, SimpleGrid } from "@mantine/core";
+import {
+  BackgroundImage,
+  Box,
+  Center,
+  Flex,
+  Image,
+  Paper,
+  SimpleGrid,
+  Stack,
+  Text,
+  Title,
+} from "@mantine/core";
 import HomepageBanner from "../components/Banners/HomepageBanner";
 import CompanyCard from "../components/Cards/CompanyCard";
 import SectionBanner from "../components/Banners/SectionBanner";
@@ -6,6 +17,7 @@ import ServiceSection from "../components/Sections/ServiceSection";
 import RightBanner from "../components/Banners/RightBanner";
 import FAQSection from "../components/Sections/FAQSection";
 import CaseStudyCard from "../components/Cards/CaseStudyCard";
+import Marquee from "react-fast-marquee";
 
 export default function Home() {
   const images = [
@@ -123,7 +135,7 @@ export default function Home() {
       <CompanyCard />
       {/* ------------------------------------------------------------------------------ */}
       {/* Tech Stack Section */}
-      <Flex>
+      <Flex visibleFrom="md">
         <Center bg={"black"} w={"100%"} style={{ flex: 0.6 }}>
           <SimpleGrid cols={4} verticalSpacing={"50"} w={"100%"}>
             {images.map(({ image, title }) => (
@@ -135,14 +147,44 @@ export default function Home() {
         </Center>
         <Box w={"100%"} style={{ flex: 0.4 }}>
           <RightBanner
-            bg="#FBCA12"
-            textColor={"black"}
+            bg="#1E1E1E"
+            textColor={"white"}
             title={"Our tech stack and growth partners"}
             subDescription={
               "Powering innovation and efficiency with industry-leading tools and platforms. We collaborate with top technology providers to deliver seamless integration, smarter workflows, and scalable solutions tailored to your business needs."
             }
           />
         </Box>
+      </Flex>
+
+      <Flex hiddenFrom="md" direction={"column"}>
+        <BackgroundImage src="bgBanner.png">
+          <Paper bg={"#1E1E1E"} w={"100%"} h={"100%"} opacity={0.97} p={"xl"}>
+            <Stack>
+              <Title order={2} ta={"center"} fw={700} c={"white"}>
+                Our tech stack and growth partners
+              </Title>
+              <Text ta={"center"} c={"white"} size={"xs"}>
+                Powering innovation and efficiency with industry-leading tools
+                and platforms. We collaborate with top technology providers to
+                deliver seamless integration, smarter workflows, and scalable
+                solutions tailored to your business needs.
+              </Text>
+              <Marquee speed={30}>
+                {images.map(({ image }) => (
+                  <Image
+                    src={image}
+                    w={50}
+                    fit="contain"
+                    h={50}
+                    mx={10}
+                    alt="logo"
+                  />
+                ))}
+              </Marquee>
+            </Stack>
+          </Paper>
+        </BackgroundImage>
       </Flex>
       {/* ------------------------------------------------------------------------------ */}
       {/* FAQ Section */}
