@@ -228,11 +228,21 @@ const page = () => {
               <Button>Let's Talk</Button>
             </Stack>
             <Box flex={0.6}>
-              <Image src={"/servicesImg.png"} />
+              <Img
+                src={"/servicesImg.png"}
+                alt="servicesImg"
+                width={700}
+                height={350}
+              />
             </Box>
           </Flex>
           <Box w={"80%"}>
-            <Image src="/servicesImg2.png" radius={"lg"} />
+            <Img
+              src="/servicesImg2.png"
+              alt="servicesImg2"
+              width={1000}
+              height={500}
+            />
           </Box>
         </Stack>
 
