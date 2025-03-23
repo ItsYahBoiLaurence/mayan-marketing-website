@@ -133,7 +133,7 @@ const BannerWithOverlap = ({
                 alignItems: "center",
               }}
             >
-              <Stack gap={"xs"} w={"100%"} align={"start"}>
+              <Stack gap={"sm"} w={"100%"} align={"start"}>
                 <Title ta={"center"} order={2} fw={700}>
                   {title}
                 </Title>
@@ -184,6 +184,8 @@ const BannerWithOverlap = ({
                     radius={"xl"}
                     autoContrast
                     to={"/contact-us"}
+                    mx={"auto"}
+                    size={"xs"}
                   >
                     {buttonText}
                   </CustomButton>
