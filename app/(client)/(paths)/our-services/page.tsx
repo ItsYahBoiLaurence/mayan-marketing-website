@@ -227,23 +227,8 @@ const page = () => {
               </Text>
               <Button>Let's Talk</Button>
             </Stack>
-            <Box flex={0.6}>
-              <Img
-                src={"/servicesImg.png"}
-                alt="servicesImg"
-                width={700}
-                height={350}
-              />
-            </Box>
+            <Box flex={0.6}></Box>
           </Flex>
-          <Box w={"80%"}>
-            <Img
-              src="/servicesImg2.png"
-              alt="servicesImg2"
-              width={1000}
-              height={500}
-            />
-          </Box>
         </Stack>
 
         <Stack
@@ -271,18 +256,6 @@ const page = () => {
 
             <Box flex={0.6}></Box>
           </Flex>
-          <Img
-            src={"/servicesImg.png"}
-            alt="servicesImg"
-            width={300}
-            height={150}
-          />
-          <Img
-            src="/servicesImg2.png"
-            alt="servicesImg2"
-            width={300}
-            height={150}
-          />
         </Stack>
       </>
 
