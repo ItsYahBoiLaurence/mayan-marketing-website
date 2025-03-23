@@ -19,11 +19,8 @@ import SectionBanner from "../../components/Banners/SectionBanner";
 import BannerWithOverlap from "../../components/Banners/BannerWithOverlap";
 import TechCard from "../../components/Cards/TechCard";
 import CarouselBanner from "../../components/Banners/CarouselBanner";
-import { IconUser } from "@tabler/icons-react";
-import { IconCpu2 } from "@tabler/icons-react";
-import { IconPresentation } from "@tabler/icons-react";
 import CustomButton from "../../components/Button/CustomButton";
-
+import Img from "next/image";
 const services = [
   {
     id: 1,
@@ -264,8 +261,18 @@ const page = () => {
 
             <Box flex={0.6}></Box>
           </Flex>
-          <Image src={"/servicesImg.png"} />
-          <Image src="/servicesImg2.png" radius={"lg"} />
+          <Img
+            src={"/servicesImg.png"}
+            alt="servicesImg"
+            width={300}
+            height={150}
+          />
+          <Img
+            src="/servicesImg2.png"
+            alt="servicesImg2"
+            width={300}
+            height={150}
+          />
         </Stack>
       </>
 
