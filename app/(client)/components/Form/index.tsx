@@ -17,13 +17,19 @@ import { useState, useEffect } from "react";
 import { notifications } from "@mantine/notifications";
 import { useMediaQuery } from "@mantine/hooks";
 
+// Define a type alias for the submit status state
+type SubmitStatus = {
+  type: "success" | "error" | null;
+  message: string;
+};
+
 const FormComponent = () => {
   // Determine if the screen is desktop size (adjust the query if needed)
   const isDesktop = useMediaQuery("(min-width: 768px)");
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState({
-    type: null, // "success" or "error"
+  const [submitStatus, setSubmitStatus] = useState<SubmitStatus>({
+    type: null,
     message: "",
   });
 
@@ -62,7 +68,7 @@ const FormComponent = () => {
     }
   }, [submitStatus]);
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (data: any) => {
     try {
       setIsSubmitting(true);
       setSubmitStatus({ type: null, message: "" });
@@ -86,7 +92,6 @@ const FormComponent = () => {
           message: "Thank you for your message! We will get back to you soon.",
         });
       } else {
-        // This case shouldn't happen with our updated proxy, but just in case
         setSubmitStatus({
           type: "error",
           message:
@@ -94,14 +99,20 @@ const FormComponent = () => {
             "Something went wrong. Please try again later.",
         });
       }
-    } catch (error) {
+    } catch (error: unknown) {
       console.error("Form submission error:", error);
-      // Check if the error response contains data
-      const errorMessage =
-        error.response?.data?.error ||
-        error.response?.data?.message ||
-        error.message ||
-        "Something went wrong. Please try again later.";
+      let errorMessage = "Something went wrong. Please try again later.";
+
+      // Use axios.isAxiosError to safely access error.response
+      if (axios.isAxiosError(error)) {
+        errorMessage =
+          error.response?.data?.error ||
+          error.response?.data?.message ||
+          error.message ||
+          errorMessage;
+      } else if (error instanceof Error) {
+        errorMessage = error.message;
+      }
 
       setSubmitStatus({
         type: "error",
@@ -115,7 +126,6 @@ const FormComponent = () => {
   return (
     <BackgroundImage
       src="/formBg.jpeg"
-      // Use different props based on screen size:
       {...(isDesktop
         ? { pos: "absolute", bottom: "-50px", h: "550px", radius: "lg" }
         : { w: "90%", mx: "auto", radius: "lg" })}
@@ -149,8 +159,7 @@ const FormComponent = () => {
                 {...register("email", {
                   required: "Email is required",
                   pattern: {
-                    value:
-                      /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                     message: "Invalid email address",
                   },
                 })}
