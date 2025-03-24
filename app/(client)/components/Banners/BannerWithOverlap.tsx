@@ -146,28 +146,31 @@ const BannerWithOverlap = ({
                     <Flex direction={"column"} gap={"xl"}>
                       {listData.map((item, index) => (
                         <Stack key={index} gap={"md"}>
-                          <Group gap={"xs"} justify={"space-between"}>
-                            <Group gap={"xs"}>
+                          <Group justify={"space-between"}>
+                            <Stack gap={"xs"}>
                               <Avatar
                                 color="black"
-                                size={"lg"}
+                                size={"md"}
                                 src={item.image ?? null}
+                                style={{
+                                  border: "1px solid black",
+                                }}
                               />
                               <Box>
                                 <Text size="sm" fw={700}>
                                   {item.name}
                                 </Text>
-                                <Text size="xs">{item.position}</Text>
+                                <Text fw={200} size="xs">{item.position}</Text>
                               </Box>
-                            </Group>
+                            </Stack>
                             <CustomButton
                               color="black"
                               radius={"xl"}
                               to={`https://www.linkedin.com/in/kimmontano?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app`}
                               size={"xs"}
                             >
-                              <Group>
-                                <IconBrandLinkedin /> Let's Connect
+                              <Group gap={"xs"}>
+                                <IconBrandLinkedin size="20px" /><Text size='xs'>Let's Connect</Text>
                               </Group>
                             </CustomButton>
                           </Group>

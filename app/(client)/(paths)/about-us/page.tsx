@@ -231,6 +231,7 @@ const page = () => {
               "Founded in 2022 seasoned tech entrepreneur Kim Montano, Mayan Solutions confronts a key tech challenge; aligning technology with business goals. With a rich history in leading tech ventures and product management, Kim established Mayan Solutions to offer a unique blend of technical savvy and strategic insight. ",
             company_line:
               "We seamlessly fuse the expertise of top-notch software engineers with the strategic acumen of business consultants, confidently steering complex corporate decisions. ",
+            image: "/kimMontano.jpeg",
           },
         ]}
       />
