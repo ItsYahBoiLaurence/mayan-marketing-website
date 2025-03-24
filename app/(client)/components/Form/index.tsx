@@ -10,20 +10,22 @@ import {
   TextInput,
   Title,
   Group,
-  Alert,
 } from "@mantine/core";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { IconCheck, IconExclamationCircle } from "@tabler/icons-react";
 import { notifications } from "@mantine/notifications";
+import { useMediaQuery } from "@mantine/hooks";
 
 const FormComponent = () => {
+  // Determine if the screen is desktop size (adjust the query if needed)
+  const isDesktop = useMediaQuery("(min-width: 768px)");
+
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<{
-    type: "success" | "error" | null;
-    message: string;
-  }>({ type: null, message: "" });
+  const [submitStatus, setSubmitStatus] = useState({
+    type: null, // "success" or "error"
+    message: "",
+  });
 
   const {
     register,
@@ -43,7 +45,7 @@ const FormComponent = () => {
   // Watch the privacy policy checkbox value
   const privacyPolicyChecked = watch("privacyPolicy");
 
-  // Use effect to show notification when status changes
+  // Show notifications when the submitStatus changes
   useEffect(() => {
     if (submitStatus.type === "success") {
       notifications.show({
@@ -58,9 +60,9 @@ const FormComponent = () => {
         color: "red",
       });
     }
-  }, [submitStatus.type, submitStatus.message]);
+  }, [submitStatus]);
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data) => {
     try {
       setIsSubmitting(true);
       setSubmitStatus({ type: null, message: "" });
@@ -92,7 +94,7 @@ const FormComponent = () => {
             "Something went wrong. Please try again later.",
         });
       }
-    } catch (error: any) {
+    } catch (error) {
       console.error("Form submission error:", error);
       // Check if the error response contains data
       const errorMessage =
@@ -111,186 +113,91 @@ const FormComponent = () => {
   };
 
   return (
-    <>
-      <BackgroundImage
-        src="/formBg.jpeg"
-        pos={"absolute"}
-        bottom={"-50px"}
-        h={"550px"}
-        radius={"lg"}
-        visibleFrom="md"
+    <BackgroundImage
+      src="/formBg.jpeg"
+      // Use different props based on screen size:
+      {...(isDesktop
+        ? { pos: "absolute", bottom: "-50px", h: "550px", radius: "lg" }
+        : { w: "90%", mx: "auto", radius: "lg" })}
+    >
+      <Paper
+        p="lg"
+        radius="lg"
+        w="100%"
+        h="100%"
+        bg="#EFEFEF"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
       >
-        <Paper
-          p={"lg"}
-          radius={"lg"}
-          w={"100%"}
-          h={"100%"}
-          bg={"#EFEFEF"}
-          opacity={1}
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Stack w={"90%"} h={"80%"}>
-            <Title order={3} fw={500}>
-              {"Let's talk about your business!"}
-            </Title>
-
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <Stack>
-                <Stack>
-                  <TextInput
-                    {...register("name", { required: "Name is required" })}
-                    placeholder="Enter your full name"
-                    label={<Text>What is your name?</Text>}
-                    error={errors.name?.message}
-                    disabled={isSubmitting}
-                  />
-                  <TextInput
-                    {...register("email", {
-                      required: "Email is required",
-                      pattern: {
-                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                        message: "Invalid email address",
-                      },
-                    })}
-                    placeholder="Enter your email"
-                    label={<Text>Email</Text>}
-                    error={errors.email?.message}
-                    disabled={isSubmitting}
-                  />
-                  <Textarea
-                    {...register("message", {
-                      required: "Message is required",
-                    })}
-                    placeholder="Please tell us what you are trying to achieve"
-                    label={<Text>Message</Text>}
-                    error={errors.message?.message}
-                    disabled={isSubmitting}
-                  />
-                </Stack>
-                <Checkbox
-                  {...register("privacyPolicy", {
-                    required: "You must agree to the Privacy Policy",
-                  })}
-                  label={
-                    <Text size="xs">
-                      By clicking the checkbox you agree to the Privacy Policy
-                      and terms of service
-                    </Text>
-                  }
-                  disabled={isSubmitting}
-                  error={errors.privacyPolicy?.message}
-                />
-                <Group justify="center">
-                  <Button
-                    variant="filled"
-                    color="#FBCA12"
-                    autoContrast
-                    type="submit"
-                    loading={isSubmitting}
-                    disabled={isSubmitting || !privacyPolicyChecked}
-                  >
-                    {isSubmitting ? "Submitting..." : "Submit"}
-                  </Button>
-                </Group>
-              </Stack>
-            </form>
-          </Stack>
-        </Paper>
-      </BackgroundImage>
-
-      <BackgroundImage
-        src="/formBg.jpeg"
-        radius={"lg"}
-        w={"90%"}
-        mx={"auto"}
-        hiddenFrom="md"
-      >
-        <Paper
-          p={"lg"}
-          radius={"lg"}
-          w={"100%"}
-          h={"100%"}
-          bg={"#EFEFEF"}
-          opacity={1}
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Stack w={"90%"} h={"80%"}>
-            <Title order={3} fw={500}>
-              {"Let's talk about your business!"}
-            </Title>
-
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <Stack>
-                <Stack>
-                  <TextInput
-                    {...register("name", { required: "Name is required" })}
-                    placeholder="Enter your full name"
-                    label={<Text>What is your name?</Text>}
-                    error={errors.name?.message}
-                    disabled={isSubmitting}
-                  />
-                  <TextInput
-                    {...register("email", {
-                      required: "Email is required",
-                      pattern: {
-                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                        message: "Invalid email address",
-                      },
-                    })}
-                    placeholder="Enter your email"
-                    label={<Text>Email</Text>}
-                    error={errors.email?.message}
-                    disabled={isSubmitting}
-                  />
-                  <Textarea
-                    {...register("message", {
-                      required: "Message is required",
-                    })}
-                    placeholder="Please tell us what you are trying to achieve"
-                    label={<Text>Message</Text>}
-                    error={errors.message?.message}
-                    disabled={isSubmitting}
-                  />
-                </Stack>
-                <Checkbox
-                  {...register("privacyPolicy", {
-                    required: "You must agree to the Privacy Policy",
-                  })}
-                  label={
-                    <Text size="xs">
-                      By clicking the checkbox you agree to the Privacy Policy
-                      and terms of service
-                    </Text>
-                  }
-                  disabled={isSubmitting}
-                  error={errors.privacyPolicy?.message}
-                />
-                <Group justify="center">
-                  <Button
-                    variant="filled"
-                    color="#FBCA12"
-                    autoContrast
-                    type="submit"
-                    loading={isSubmitting}
-                    disabled={isSubmitting || !privacyPolicyChecked}
-                  >
-                    {isSubmitting ? "Submitting..." : "Submit"}
-                  </Button>
-                </Group>
-              </Stack>
-            </form>
-          </Stack>
-        </Paper>
-      </BackgroundImage>
-    </>
+        <Stack w="90%" h="80%">
+          <Title order={3} fw={500}>
+            {"Let's talk about your business!"}
+          </Title>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <Stack>
+              <TextInput
+                {...register("name", { required: "Name is required" })}
+                placeholder="Enter your full name"
+                label={<Text>What is your name?</Text>}
+                error={errors.name?.message}
+                disabled={isSubmitting}
+              />
+              <TextInput
+                {...register("email", {
+                  required: "Email is required",
+                  pattern: {
+                    value:
+                      /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                    message: "Invalid email address",
+                  },
+                })}
+                placeholder="Enter your email"
+                label={<Text>Email</Text>}
+                error={errors.email?.message}
+                disabled={isSubmitting}
+              />
+              <Textarea
+                {...register("message", {
+                  required: "Message is required",
+                })}
+                placeholder="Please tell us what you are trying to achieve"
+                label={<Text>Message</Text>}
+                error={errors.message?.message}
+                disabled={isSubmitting}
+              />
+              <Checkbox
+                {...register("privacyPolicy", {
+                  required: "You must agree to the Privacy Policy",
+                })}
+                label={
+                  <Text size="xs">
+                    By clicking the checkbox you agree to the Privacy Policy
+                    and terms of service
+                  </Text>
+                }
+                disabled={isSubmitting}
+                error={errors.privacyPolicy?.message}
+              />
+              <Group justify="center">
+                <Button
+                  variant="filled"
+                  color="#FBCA12"
+                  autoContrast
+                  type="submit"
+                  loading={isSubmitting}
+                  disabled={isSubmitting || !privacyPolicyChecked}
+                >
+                  {isSubmitting ? "Submitting..." : "Submit"}
+                </Button>
+              </Group>
+            </Stack>
+          </form>
+        </Stack>
+      </Paper>
+    </BackgroundImage>
   );
 };
 
