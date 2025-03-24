@@ -146,8 +146,8 @@ const BannerWithOverlap = ({
                     <Flex direction={"column"} gap={"xl"}>
                       {listData.map((item, index) => (
                         <Stack key={index} gap={"md"}>
-                          <Group gap={"md"} justify={"space-between"}>
-                            <Group gap={"md"}>
+                          <Group gap={"xs"} justify={"space-between"}>
+                            <Group gap={"xs"}>
                               <Avatar
                                 color="black"
                                 size={"lg"}
