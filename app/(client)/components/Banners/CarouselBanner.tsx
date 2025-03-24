@@ -17,11 +17,11 @@ import CustomButton from "../Button/CustomButton";
 const items = [
   {
     id: 1,
-    image: "/carousel1.png",
+    image: "/grandSuite.png",
   },
   {
     id: 2,
-    image: "/carousel2.png",
+    image: "/Dashboard.jpg",
   },
   {
     id: 3,
