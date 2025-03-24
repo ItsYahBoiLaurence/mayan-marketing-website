@@ -29,6 +29,20 @@ const items = [
   },
 ];
 
+const items2 = [
+  {
+    id: 1,
+    image: "/wellbe2.png",
+  },
+  {
+    id: 2,
+    image: "/grandSuite2.png",
+  },
+  {
+    id: 3,
+    image: "/goldenH2.png",
+  },
+];
 const CarouselBanner = () => {
   return (
     <>
@@ -50,7 +64,7 @@ const CarouselBanner = () => {
           </Box>
           <Box>
             <Marquee speed={25} direction="right">
-              {items.map((item) => (
+              {items2.map((item) => (
                 <Paper key={item.id} mx={"20px"} radius={"xl"}>
                   <Image
                     src={item.image}

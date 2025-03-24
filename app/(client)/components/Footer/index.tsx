@@ -33,7 +33,7 @@ const index = () => {
         <Image
           radius="md"
           h={20}
-          src="/darkLogo.png"
+          src="/footerLogo.png"
           alt='logo'
         />
         <Group>

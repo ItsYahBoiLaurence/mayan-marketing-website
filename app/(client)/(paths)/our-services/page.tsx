@@ -107,11 +107,12 @@ const page = () => {
               </Box>
               <Box style={{ flex: 0.6 }} pos={"relative"} h={"100%"}>
                 <Image
-                  src="/CPs.png"
-                  pos={"absolute"}
+                  src="/Cps2.png"
+                  h={"1000px"}
+                  w={"100%"}
                   bottom={"-100px"}
-                  h={"700px"}
                   alt="logo"
+                  fit="contain"
                 />
               </Box>
             </Flex>
@@ -358,7 +359,7 @@ const page = () => {
         buttonDesc={"Book a discovery call"}
         textColor={"white"}
       />
-    </Box>
+    </Box >
   );
 };
 
