@@ -6,7 +6,7 @@ import { PortableText } from '@portabletext/react'
 const CaseStudyPage = async ({ params }: any) => {
     const { caseStudyId } = await params
 
-    const query = `*[_type == "case-studies" && _id == "${caseStudyId}"][0]`
+    const query = `*[_type == "studies" && _id == "${caseStudyId}"][0]`
     const post = await client.fetch(query)
     return (
         <Box w={'80%'} mx={'auto'} >

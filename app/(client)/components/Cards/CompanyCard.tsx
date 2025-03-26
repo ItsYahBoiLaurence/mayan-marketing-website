@@ -37,7 +37,7 @@ const companies: CompanyCardProps[] = [
     name: "Spurway Enterprise",
     description:
       "Driving business transformation through custom technology solutions tailored for scalable growth.",
-    link: "https://spurway.com/",
+    link: "https://spurway.com.ph/",
   },
 ];
 

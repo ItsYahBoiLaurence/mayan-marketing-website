@@ -13,7 +13,7 @@ interface Post {
 }
 
 async function getPosts() {
-    const query = `*[_type == "case-studies"]`
+    const query = `*[_type == "studies"]`
     return await client.fetch(query)
 }
 

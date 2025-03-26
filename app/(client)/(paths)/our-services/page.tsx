@@ -108,9 +108,8 @@ const page = () => {
               <Box style={{ flex: 0.6 }} pos={"relative"} h={"100%"}>
                 <Image
                   src="/Cps2.png"
-                  h={"1000px"}
+                  h={"700px"}
                   w={"100%"}
-                  bottom={"-100px"}
                   alt="logo"
                   fit="contain"
                 />
