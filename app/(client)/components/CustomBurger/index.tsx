@@ -1,7 +1,8 @@
 "use client";
 
-import { Anchor, Burger, Container, Drawer, Stack } from "@mantine/core";
+import { Anchor, Burger, Container, Drawer, Image, Stack, Text } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
+import { usePathname } from "next/navigation";
 import React from "react";
 
 const navItems = [
@@ -33,19 +34,27 @@ const navItems = [
 
 const index = () => {
   const [opened, { toggle }] = useDisclosure();
+  const pathname = usePathname()
+  console.log(pathname)
   return (
     <>
-      <Drawer opened={opened} onClose={toggle}>
-        <Container py="md">
-          <Stack align="center">
-            {navItems.map((item, index) => (
-              <Anchor key={index} href={item.href}>
-                {item.label}
-              </Anchor>
-            ))}
-          </Stack>
-        </Container>
-      </Drawer>
+      <Drawer.Root opened={opened} onClose={toggle} size={'80%'} zIndex={1001}>
+        <Drawer.Content>
+          <Drawer.Header>
+            <Image src={'/mayanLogo.png'} />
+            <Drawer.CloseButton c={'jonquil'} size={'xl'} />
+          </Drawer.Header>
+          <Container py="md">
+            <Stack align="start" gap={'md'}>
+              {navItems.map((item, index) => (
+                <Anchor key={index} href={item.href} bg={pathname === item.href ? 'jonquil' : 'none'} w={'100%'} p={'md'} style={{ borderRadius: '8px' }}>
+                  <Text c={'black'}>{item.label}</Text>
+                </Anchor>
+              ))}
+            </Stack>
+          </Container>
+        </Drawer.Content>
+      </Drawer.Root>
       <Burger lineSize={4} opened={opened} onClick={toggle} color="jonquil" />
     </>
   );
