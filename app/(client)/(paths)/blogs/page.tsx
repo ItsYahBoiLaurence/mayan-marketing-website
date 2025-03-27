@@ -6,6 +6,8 @@ import { Center } from "@mantine/core";
 import React from "react";
 import BlogCard from "../../components/Cards/BlogCard/BlogCard";
 
+export const revalidate = 60
+
 const page = async () => {
   const query = `*[_type == "blogs"]{
     _id,
@@ -15,6 +17,7 @@ const page = async () => {
     }`;
   const blogs = await client.fetch(query);
   console.log(blogs);
+
   return (
     <div>
       <>
