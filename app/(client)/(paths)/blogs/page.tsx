@@ -30,17 +30,15 @@ const page = async () => {
         >
           <Center h={"100%"} w={"100%"} bg={"#042161"} opacity={0.95}>
             <Stack w={"40%"}>
-              <Text c={"#fff"} size="xs" tt={"uppercase"} ta={"center"}>
+              <Text c={"#fff"} size="sm" tt={"uppercase"} ta={"center"}>
                 Blogs
               </Text>
-              <Text size="48px" fw={700} c={"#fff"} ta={"center"}>
-                Transforming Ideas into Impactful Success Stories
+              <Text size="72px" fw={700} c={"#fff"} ta={"center"}>
+                Read <span style={{ color: '#FFCE13' }}>Insights</span> to drive <span style={{ color: '#FFCE13' }}> <br />Real Growth</span>
               </Text>
               <Box w={"60%"} mx={"auto"}>
-                <Text size="xs" c={"#fff"} ta={"center"}>
-                  Every Success starts with a idea. We turn vissions into reality,
-                  crafting experiences that inspire action, drive growth, and
-                  create lasting impact
+                <Text size="md" c={"#fff"} ta={"center"}>
+                  Explore expert perspectives, data-driven insights, and innovate strategies designed to scale your business, streamline operations, and maximize tech spend.
                 </Text>
               </Box>
             </Stack>
@@ -72,14 +70,12 @@ const page = async () => {
               <Text c={"#fff"} size="xs" tt={"uppercase"} ta={"center"}>
                 Blogs
               </Text>
-              <Title order={2} fw={700} c={"#fff"} ta={"center"} >
-                Transforming Ideas into Impactful Success Stories
+              <Title order={1} fw={700} c={"#fff"} ta={"center"} >
+                Read <span style={{ color: '#FFCE13' }}>Insights</span> to drive <span style={{ color: '#FFCE13' }}> <br />Real Growth</span>
               </Title>
               <Box w={"80%"} mx={"auto"}>
                 <Text size="xs" c={"#fff"} ta={"center"} >
-                  Every Success starts with a idea. We turn vissions into reality,
-                  crafting experiences that inspire action, drive growth, and
-                  create lasting impact
+                  Explore expert perspectives, data-driven insights, and innovate strategies designed to scale your business, streamline operations, and maximize tech spend.
                 </Text>
               </Box>
             </Stack>
