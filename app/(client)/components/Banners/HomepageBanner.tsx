@@ -17,7 +17,7 @@ const HomepageBanner = () => {
     <>
       {/* Desktop */}
       <BackgroundImage src="/homepage_banner.png" h="100vh" visibleFrom="md">
-        <Paper h="100vh" bg={"#042161"} opacity={0.95}>
+        <Paper h="100vh" bg={"#042161"} opacity={0.90}>
           <Center h="90%">
             <Stack align="center">
               <Text ta="center" size="lg" c="white">
