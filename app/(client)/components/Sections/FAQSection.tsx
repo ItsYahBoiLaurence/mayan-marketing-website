@@ -10,6 +10,7 @@ import {
 } from "@mantine/core";
 import React from "react";
 import FAQCards from "../Cards/FAQCards";
+import CustomButton from "../Button/CustomButton";
 type FAQ = {
   id: number;
   question: string;
@@ -68,9 +69,9 @@ const FAQSection = () => {
                 Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                 accusantium doloremque laudantium
               </Text>
-              <Button variant="filled" color="blue">
+              <CustomButton variant="filled" color="blue" to='/faqs'>
                 Read More
-              </Button>
+              </CustomButton>
             </Stack>
           </Card>
         </Box>
