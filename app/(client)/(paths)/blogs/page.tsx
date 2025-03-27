@@ -44,6 +44,19 @@ const page = async () => {
           </Center>
         </BackgroundImage>
 
+        <SimpleGrid cols={3} w={"80%"} mx={"auto"} visibleFrom="md" mt={"-120px"}>
+          {blogs.map((blog: any) => (
+            <BlogCard
+              key={blog._id}
+              id={blog._id}
+              title={blog.title}
+              img={blog.image}
+              date={blog.date}
+            />
+          ))}
+        </SimpleGrid>
+
+
         <BackgroundImage
           src="/bannerOverlap.png"
           w={"100%"}
@@ -71,33 +84,17 @@ const page = async () => {
         </BackgroundImage>
       </>
 
-
-
-      <>
-        <SimpleGrid cols={3} w={"80%"} mx={"auto"} visibleFrom="md" mt={"-120px"}>
-          {blogs.map((blog: any) => (
-            <BlogCard
-              key={blog._id}
-              id={blog._id}
-              title={blog.title}
-              img={blog.image}
-              date={blog.date}
-            />
-          ))}
-        </SimpleGrid>
-
-        <SimpleGrid cols={1} w={"80%"} mx={"auto"} mt={"-120px"} hiddenFrom="md">
-          {blogs.map((blog: any) => (
-            <BlogCard
-              key={blog._id}
-              id={blog._id}
-              title={blog.title}
-              img={blog.image}
-              date={blog.date}
-            />
-          ))}
-        </SimpleGrid>
-      </>
+      <SimpleGrid cols={1} w={"80%"} mx={"auto"} mt={"-120px"} hiddenFrom="md">
+        {blogs.map((blog: any) => (
+          <BlogCard
+            key={blog._id}
+            id={blog._id}
+            title={blog.title}
+            img={blog.image}
+            date={blog.date}
+          />
+        ))}
+      </SimpleGrid>
     </div>
   );
 };
