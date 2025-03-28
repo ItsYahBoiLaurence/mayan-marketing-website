@@ -22,7 +22,7 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Send Lark Notification
+    - name: Send Lark Notification (Success)
       if: success()
       run: |
         curl -X POST "${{ secrets.DPLOI_LARK_BOT_WEBHOOK }}" \
@@ -53,8 +53,8 @@ jobs:
             }
           }'
 
-   - name: Send Lark Notification
-      if: success()
+    - name: Send Lark Notification (Failure)
+      if: failure()
       run: |
         curl -X POST "${{ secrets.DPLOI_LARK_BOT_WEBHOOK }}" \
           -H "Content-Type: application/json" \
