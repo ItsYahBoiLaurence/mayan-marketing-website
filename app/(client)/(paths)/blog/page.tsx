@@ -1,7 +1,8 @@
 import { client } from "@/sanity/lib/client"
 import { urlFor } from "@/sanity/lib/image"
 import { BackgroundImage, Box, Card, CardSection, Center, Group, Image, SimpleGrid, Stack, Text } from "@mantine/core"
-import Link from "next/link"
+
+export const revalidate = 60
 
 const getBlogs = async () => {
     const query = `*[_type == "blogs"]{
