@@ -32,12 +32,12 @@ jobs:
             "content": {
               "post": {
                 "en_us": {
-                  "title": "Deployment Notification",
+                  "title": "✅✅Deployment Notification✅✅",
                   "content": [
                     [
                       {
                       "tag": "text",
-                      "text": "✅✅Deployment successful!✅✅"
+                      "text": "Deployment successful!"
                       }
                     ],
                     [
@@ -63,12 +63,12 @@ jobs:
             "content": {
               "post": {
                 "en_us": {
-                  "title": "Deployment Notification",
+                  "title": "❌❌Deployment Notification❌❌",
                   "content": [
                     [
                       {
                       "tag": "text",
-                      "text": "❌❌Deployment Failed!❌❌"
+                      "text": "Deployment Failed!"
                       }
                     ],
                     [
