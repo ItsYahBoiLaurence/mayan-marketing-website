@@ -32,7 +32,7 @@ jobs:
             "content": {
               "post": {
                 "en_us": {
-                  "title": "✅✅Deployment Notification✅✅",
+                  "title": "SUCCESSFUL DEPLOYMENT NOTIFICATION✅",
                   "content": [
                     [
                       {
@@ -63,7 +63,7 @@ jobs:
             "content": {
               "post": {
                 "en_us": {
-                  "title": "❌❌Deployment Notification❌❌",
+                  "title": "DEPLOYMENT ERROR NOTIFICATION❌",
                   "content": [
                     [
                       {
