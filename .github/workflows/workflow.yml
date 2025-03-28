@@ -24,6 +24,8 @@ jobs:
 
     - name: Send Lark Notification (Success)
       if: success()
+      env:
+        COMMIT_MSG: ${{ github.event.head_commit.message }}
       run: |
         curl -X POST "${{ secrets.DPLOI_LARK_BOT_WEBHOOK }}" \
           -H "Content-Type: application/json" \
@@ -37,7 +39,7 @@ jobs:
                     [
                       {
                       "tag": "text",
-                      "text": "Deployment successful!"
+                      "text": "'"$COMMIT_MSG"'"
                       }
                     ],
                     [
@@ -55,6 +57,8 @@ jobs:
 
     - name: Send Lark Notification (Failure)
       if: failure()
+      env:
+        COMMIT_MSG: ${{ github.event.head_commit.message }}
       run: |
         curl -X POST "${{ secrets.DPLOI_LARK_BOT_WEBHOOK }}" \
           -H "Content-Type: application/json" \
@@ -68,7 +72,7 @@ jobs:
                     [
                       {
                       "tag": "text",
-                      "text": "Deployment Failed!"
+                      "text": "'"$COMMIT_MSG"'"
                       }
                     ],
                     [
