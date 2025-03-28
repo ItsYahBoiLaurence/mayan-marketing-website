@@ -14,6 +14,7 @@ const index = ({ title, category, content }: AccordionType) => {
                 classNames={{ chevron: classes.chevron }}
                 chevron={<IconPlus className={classes.icon} />}
                 pt='xs'
+                visibleFrom="md"
             >
                 <AccordionItem key={title} value={title}>
                     <AccordionControl >
@@ -23,6 +24,25 @@ const index = ({ title, category, content }: AccordionType) => {
                         </Stack>
                     </AccordionControl>
                     <AccordionPanel py='sm'>{content}</AccordionPanel>
+                </AccordionItem>
+            </Accordion>
+
+
+            <Accordion
+                classNames={{ chevron: classes.chevron }}
+                chevron={<IconPlus className={classes.icon} />}
+                pt='xs'
+                hiddenFrom="md"
+            >
+                <AccordionItem key={title} value={title}>
+                    <AccordionControl >
+                        <Stack gap={'md'}>
+                            <Badge color="blue" size="lg" radius="sm" bg={category === 'Development' ? '#FCCF56' : '#596B93'} autoContrast>{category}</Badge>
+                            <Text size="md" fw={700}>{title}</Text>
+                        </Stack>
+                    </AccordionControl>
+                    <AccordionPanel py='sm'>
+                        <Text size="xs">{content}</Text></AccordionPanel>
                 </AccordionItem>
             </Accordion>
         </Paper>

@@ -118,9 +118,9 @@ const FAQSection = () => {
               personalized assistance, don’t hesitate to reach out—we’d love to
               hear from you!
             </Text>
-            <Button variant="filled" color="blue" radius={"xl"}>
+            <CustomButton variant="filled" color="blue" to='/faqs'>
               Read More
-            </Button>
+            </CustomButton>
           </Stack>
         </Box>
         <SimpleGrid
