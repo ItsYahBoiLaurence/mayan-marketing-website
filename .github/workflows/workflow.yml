@@ -21,3 +21,65 @@ jobs:
 
     - name: Install dependencies
       run: npm install
+
+    - name: Send Lark Notification
+      if: success()
+      run: |
+        curl -X POST "${{ secrets.DPLOI_LARK_BOT_WEBHOOK }}" \
+          -H "Content-Type: application/json" \
+          -d '{
+            "msg_type": "post",
+            "content": {
+              "post": {
+                "en_us": {
+                  "title": "Deployment Notification",
+                  "content": [
+                    [
+                      {
+                      "tag": "text",
+                      "text": "✅✅Deployment successful!✅✅"
+                      }
+                    ],
+                    [
+                      {
+                      "tag": "a",
+                      "text": "View Website",
+                      "href": "https://mayan.com.ph"
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          }'
+
+   - name: Send Lark Notification
+      if: success()
+      run: |
+        curl -X POST "${{ secrets.DPLOI_LARK_BOT_WEBHOOK }}" \
+          -H "Content-Type: application/json" \
+          -d '{
+            "msg_type": "post",
+            "content": {
+              "post": {
+                "en_us": {
+                  "title": "Deployment Notification",
+                  "content": [
+                    [
+                      {
+                      "tag": "text",
+                      "text": "❌❌Deployment Failed!❌❌"
+                      }
+                    ],
+                    [
+                      {
+                      "tag": "a",
+                      "text": "Deployment Log",
+                      "href": "https://vercel.com/itsyahboilaurences-projects/mayan-marketing-website"
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          }'
