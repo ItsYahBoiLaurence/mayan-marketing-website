@@ -20,27 +20,13 @@ import BannerWithOverlap from "../../components/Banners/BannerWithOverlap";
 import TechCard from "../../components/Cards/TechCard";
 import CarouselBanner from "../../components/Banners/CarouselBanner";
 import CustomButton from "../../components/Button/CustomButton";
-import Img from "next/image";
-const services = [
-  {
-    id: 1,
-    title: "Customer-facing apps",
-    description:
-      "Enhance your customer experience with a faster, more intuitive interface. The result? More engaged customers and increased retention.",
-  },
-  {
-    id: 2,
-    title: "Revenue Driving Solutions",
-    description:
-      "Build digital product that open your revenue streams. Provide value to your users and growth for your business. ",
-  },
-  {
-    id: 3,
-    title: "Enterprise AI Solutions",
-    description:
-      "Digitize business processes to empower your field operations. Tap the power of data to understand your customers and push your social responsibility and sustainability initiatives. ",
-  },
-];
+import { fetchFromSanity } from "@/lib/sanityApi";
+
+interface serviceType {
+  title: string
+  description: string
+  image: string
+}
 
 const techStack = [
   {
@@ -64,7 +50,10 @@ const techStack = [
   },
 ];
 
-const page = () => {
+const page = async () => {
+
+  const services = await fetchFromSanity(`*[_type=="service"]{title,description,image}`)
+
   return (
     <Box>
       <>
@@ -171,12 +160,10 @@ const page = () => {
       <>
         <Box w={"80%"} mx={"auto"} my={"xl"} py={"xl"} visibleFrom="md">
           <SimpleGrid cols={3} verticalSpacing={"xl"} spacing={"xl"}>
-            {services.map(({ id, title, description }) => (
+            {services.map((service: serviceType, index: number) => (
               <ServiceCard
-                key={id}
-                id={id}
-                title={title}
-                description={description}
+                key={index}
+                {...service}
               />
             ))}
           </SimpleGrid>
@@ -190,20 +177,16 @@ const page = () => {
           mt={"-150px"}
         >
           <SimpleGrid cols={1} verticalSpacing={"xl"} spacing={"xl"}>
-            {services.map(({ id, title, description }) => (
+            {services.map((service: serviceType, index: number) => (
               <ServiceCard
-                key={id}
-                id={id}
-                title={title}
-                description={description}
+                key={index}
+                {...service}
               />
             ))}
           </SimpleGrid>
         </Box>
       </>
-
       <CarouselBanner />
-
       <>
         <Stack
           w={"80%"}

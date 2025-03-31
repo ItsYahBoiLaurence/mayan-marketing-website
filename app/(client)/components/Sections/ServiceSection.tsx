@@ -9,39 +9,23 @@ import {
 } from "@mantine/core";
 import React from "react";
 import ServiceCard from "../Cards/ServiceCard";
+import { fetchFromSanity } from "@/lib/sanityApi";
 
-const services = [
-  {
-    id: 1,
-    title: "Analytics for employee well-being",
-    description:
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
-  },
-  {
-    id: 2,
-    title: "Design and integration for success and bigger impact",
-    description:
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
-  },
-  {
-    id: 3,
-    title: "Custom Web App Development Services",
-    description:
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
-  },
-  {
-    id: 4,
-    title: "Tech Strategy powered by data and user feedback",
-    description:
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium",
-  },
-];
+interface serviceType {
+  title: string,
+  description: string,
+  image: string
+}
 
-const ServiceSection = () => {
+const ServiceSection = async () => {
+
+  const services = await fetchFromSanity(`*[_type=="service"]{title,description,image}[0...4]`)
+  console.log(services)
+
   return (
     <>
       <Flex w={"80%"} mx={"auto"} p={"xl"} gap={"md"} visibleFrom="md">
-        <Box>
+        <Box flex={0.33}>
           <Stack justify="start">
             <Title order={2} fw={700}>
               Your blueprint for digital implementation, simplified.
@@ -52,13 +36,11 @@ const ServiceSection = () => {
             </Text>
           </Stack>
         </Box>
-        <SimpleGrid cols={2} verticalSpacing={"xl"} spacing={"xl"}>
-          {services.map(({ id, title, description }) => (
+        <SimpleGrid cols={2} verticalSpacing={"xl"} spacing={"xl"} flex={0.66}>
+          {services.map((service: serviceType, index: number) => (
             <ServiceCard
-              key={id}
-              id={id}
-              title={title}
-              description={description}
+              key={index}
+              {...service}
             />
           ))}
         </SimpleGrid>
@@ -76,12 +58,10 @@ const ServiceSection = () => {
         </Stack>
 
         <SimpleGrid cols={1} verticalSpacing={"xl"} spacing={"xl"}>
-          {services.map(({ id, title, description }) => (
+          {services.map((service: serviceType, index: number) => (
             <ServiceCard
-              key={id}
-              id={id}
-              title={title}
-              description={description}
+              key={index}
+              {...service}
             />
           ))}
         </SimpleGrid>

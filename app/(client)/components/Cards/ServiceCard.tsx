@@ -1,20 +1,21 @@
+import { urlFor } from "@/sanity/lib/image";
 import {
   Avatar,
   BackgroundImage,
-  ColorSwatch,
+  Image,
   Paper,
   Stack,
   Text,
 } from "@mantine/core";
-import { IconUser, IconPresentation, IconCpu2 } from "@tabler/icons-react";
 import React from "react";
+
 type ServiceCardProps = {
-  id: number;
   title: string;
   description: string;
+  image: string
 };
 
-const ServiceCard = ({ title, description, id }: ServiceCardProps) => {
+const ServiceCard = ({ title, description, image }: ServiceCardProps) => {
   return (
     <BackgroundImage src={"/serviceBg.png"} w={"100%"} h={"100%"} radius={"md"}>
       <Paper
@@ -25,13 +26,9 @@ const ServiceCard = ({ title, description, id }: ServiceCardProps) => {
         opacity={0.95}
       >
         <Stack justify="center" gap={"xs"}>
-          {id == 1 ? (
-            <IconUser size={40} />
-          ) : id == 2 ? (
-            <IconPresentation size={40} />
-          ) : (
-            <IconCpu2 size={40} />
-          )}
+          <Avatar size={'lg'} variant="transparent" radius={'xs'}>
+            <Image src={urlFor(image).url()} />
+          </Avatar>
           <Text size="lg" fw={700}>
             {title}
           </Text>
