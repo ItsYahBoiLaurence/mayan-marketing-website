@@ -11,6 +11,8 @@ import React from "react";
 import ServiceCard from "../Cards/ServiceCard";
 import { fetchFromSanity } from "@/lib/sanityApi";
 
+export const revalidate = 60
+
 interface serviceType {
   title: string,
   description: string,
@@ -19,7 +21,7 @@ interface serviceType {
 
 const ServiceSection = async () => {
 
-  const services = await fetchFromSanity(`*[_type=="service"]{title,description,image}[0...4]`)
+  const services = await fetchFromSanity(`*[_type=="process"]{title,description,image}[0...4]`)
   console.log(services)
 
   return (

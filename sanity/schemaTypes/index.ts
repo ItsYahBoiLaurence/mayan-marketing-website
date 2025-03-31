@@ -4,6 +4,8 @@ import blog from './blog'
 import study from './study'
 import faq from './faq'
 import service from './service'
+import process from './process'
+
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [author, blog, study, faq, service],
+  types: [author, blog, study, faq, service, process],
 }
