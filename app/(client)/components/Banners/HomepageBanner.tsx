@@ -56,8 +56,8 @@ const HomepageBanner = () => {
       </BackgroundImage>
 
       {/* Mobile */}
-      <BackgroundImage src="/homepage_banner.png" h="80vh" hiddenFrom="md">
-        <Paper h="80vh" bg={"#042161"} opacity={0.95}>
+      <BackgroundImage src="/homepage_banner.png" h="65vh" hiddenFrom="md">
+        <Paper h={'100%'} bg={"#042161"} opacity={0.95}>
           <Center h="90%" w="80%">
             <Stack align="start" gap="lg">
               <Box>

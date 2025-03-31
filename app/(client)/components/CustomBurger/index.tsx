@@ -1,9 +1,9 @@
 "use client";
 
-import { Anchor, Burger, Container, Drawer, Image, Stack, Text } from "@mantine/core";
+import { Anchor, Burger, Button, Container, Drawer, Image, Stack, Text } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { usePathname } from "next/navigation";
-import React from "react";
+import { usePathname, useRouter } from "next/navigation";
+import React, { useState } from "react";
 
 const navItems = [
   {
@@ -27,6 +27,10 @@ const navItems = [
     href: "/contact-us",
   },
   {
+    label: "FAQs",
+    href: "/faqs",
+  },
+  {
     label: "Blog",
     href: "/blog",
   },
@@ -35,21 +39,39 @@ const navItems = [
 const index = () => {
   const [opened, { toggle }] = useDisclosure();
   const pathname = usePathname()
-  console.log(pathname)
+  const router = useRouter()
+  const [active, setActive] = useState(pathname)
+
+  const handleClick = (href: string) => {
+    setActive(href)
+    router.push(href)
+    toggle()
+  }
+
   return (
     <>
       <Drawer.Root opened={opened} onClose={toggle} size={'80%'} zIndex={1001}>
         <Drawer.Content>
           <Drawer.Header>
             <Image src={'/mayanLogo.png'} />
-            <Drawer.CloseButton c={'jonquil'} size={'xl'} />
           </Drawer.Header>
           <Container py="md">
             <Stack align="start" gap={'md'}>
               {navItems.map((item, index) => (
-                <Anchor key={index} href={item.href} bg={pathname === item.href ? 'jonquil' : 'none'} w={'100%'} p={'md'} style={{ borderRadius: '8px' }}>
+                <Button
+                  key={index}
+                  component="a"
+                  size="lg"
+                  justify="start"
+                  href={item.href}
+                  bg={active === item.href ? 'jonquil' : 'none'}
+                  w={'100%'}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    handleClick(item.href)
+                  }}>
                   <Text c={'black'}>{item.label}</Text>
-                </Anchor>
+                </Button>
               ))}
             </Stack>
           </Container>

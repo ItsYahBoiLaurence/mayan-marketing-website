@@ -121,7 +121,7 @@ const page = () => {
         <BackgroundImage
           src="/bgBanner.png"
           w={"100%"}
-          h={"80vh"}
+          h={"60vh"}
           mb={"60px"}
           hiddenFrom="md"
         >

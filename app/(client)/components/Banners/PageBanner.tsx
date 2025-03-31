@@ -72,7 +72,7 @@ const PageBanner = () => {
       <BackgroundImage
         src="/pagebanner1.png"
         w={"100%"}
-        h={"80vh"}
+        h={"60vh"}
         mb={"60px"}
         hiddenFrom="md"
       >
@@ -80,7 +80,7 @@ const PageBanner = () => {
           <Flex w={"100%"} h={"100%"} justify={"center"} align={"center"}>
             <Box h={"100%"}>
               <Center h={"100%"} px={"xl"}>
-                <Stack w={"80%"} gap={"lg"}>
+                <Stack w={"90%"} gap={"lg"}>
                   <Text size="xs" c={"#fff"} fw={700}>
                     [ ABOUT US ]
                   </Text>

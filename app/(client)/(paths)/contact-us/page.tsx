@@ -52,13 +52,13 @@ const page = () => {
           <BackgroundImage
             src="/contactBanner.png"
             w={"100%"}
-            h={"80vh"}
+            h={"60vh"}
             mb={"60px"}
           >
             <Paper h={"100%"} w={"100%"} bg={"#042161"} opacity={0.95}>
               <Box h={"100%"}>
                 <Center h={"100%"} w={"100%"} px={"xl"}>
-                  <Stack w={"80%"} align={"start"}>
+                  <Stack w={"90%"} align={"start"}>
                     <Box>
                       <Title c={"#fff"} fw={700}>
                         Share your Stories.
