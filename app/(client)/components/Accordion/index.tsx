@@ -2,12 +2,12 @@ import { Accordion, AccordionControl, AccordionItem, AccordionPanel, Badge, Colo
 import classes from "./Accordion.module.css"
 import { IconMapSearch, IconPlus } from '@tabler/icons-react';
 type AccordionType = {
-    title: string,
+    question: string,
     category: string,
-    content: string
+    answer: string
 }
 // 
-const index = ({ title, category, content }: AccordionType) => {
+const index = ({ question, category, answer }: AccordionType) => {
     return (
         <Paper withBorder radius={'lg'} style={{ overflow: "hidden" }}>
             <Accordion
@@ -16,14 +16,14 @@ const index = ({ title, category, content }: AccordionType) => {
                 pt='xs'
                 visibleFrom="md"
             >
-                <AccordionItem key={title} value={title}>
+                <AccordionItem key={question} value={question}>
                     <AccordionControl >
                         <Stack gap={'md'}>
                             <Badge color="blue" size="lg" radius="sm" bg={category === 'Development' ? '#FCCF56' : '#596B93'} autoContrast>{category}</Badge>
-                            <Text size="lg" fw={700}>{title}</Text>
+                            <Text size="lg" fw={700}>{question}</Text>
                         </Stack>
                     </AccordionControl>
-                    <AccordionPanel py='sm'>{content}</AccordionPanel>
+                    <AccordionPanel py='sm'>{answer}</AccordionPanel>
                 </AccordionItem>
             </Accordion>
 
@@ -34,15 +34,15 @@ const index = ({ title, category, content }: AccordionType) => {
                 pt='xs'
                 hiddenFrom="md"
             >
-                <AccordionItem key={title} value={title}>
+                <AccordionItem key={question} value={question}>
                     <AccordionControl >
                         <Stack gap={'md'}>
                             <Badge color="blue" size="lg" radius="sm" bg={category === 'Development' ? '#FCCF56' : '#596B93'} autoContrast>{category}</Badge>
-                            <Text size="md" fw={700}>{title}</Text>
+                            <Text size="md" fw={700}>{question}</Text>
                         </Stack>
                     </AccordionControl>
                     <AccordionPanel py='sm'>
-                        <Text size="xs">{content}</Text></AccordionPanel>
+                        <Text size="xs">{answer}</Text></AccordionPanel>
                 </AccordionItem>
             </Accordion>
         </Paper>
