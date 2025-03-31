@@ -88,7 +88,7 @@ const BannerWithOverlap = ({
                             <CustomButton
                               color="black"
                               radius={"xl"}
-                              to={`/about-us/${item.name}`}
+                              to={`https://www.linkedin.com/in/kimmontano?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app`}
                             >
                               <Group>
                                 <IconBrandLinkedin /> Let's Connect
