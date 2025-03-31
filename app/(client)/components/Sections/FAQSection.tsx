@@ -1,6 +1,5 @@
 import {
   Box,
-  Button,
   Card,
   Flex,
   SimpleGrid,
@@ -11,52 +10,24 @@ import {
 import React from "react";
 import FAQCards from "../Cards/FAQCards";
 import CustomButton from "../Button/CustomButton";
+import { fetchFromSanity } from "@/lib/sanityApi";
+
 type FAQ = {
-  id: number;
   question: string;
   answer: string;
   category: string;
 };
 
-const faqs: FAQ[] = [
-  {
-    id: 1,
-    question: "Are you an application development company?",
-    answer:
-      "Yes, but we're more than that! At Mayan, we combine tech expertise with strategic tech advisory to ensure your apps align with your business goals. We also provide comprehensive IT support and internal training—from app development to ongoing maintenance—ensuring every step takes you to success.",
-    category: "Development",
-  },
-  {
-    id: 2,
-    question:
-      "I’m looking for a mobile app development company, why should I choose Mayan?",
-    answer:
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantiumSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium ",
-    category: "Mobile App",
-  },
-  {
-    id: 3,
-    question: "Do you have a team of mobile app developers to work on my app?",
-    answer:
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantiumSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium ",
-    category: "Mobile App",
-  },
-  {
-    id: 4,
-    question: "What kind of app development project do you currently work on?",
-    answer:
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantiumSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium ",
-    category: "Development",
-  },
-];
+const FAQSection = async () => {
 
-const FAQSection = () => {
+  const faqs = await fetchFromSanity(`*[_type == "faqs"]{question, category, answer}[0...4]`)
+
   return (
     <>
       <Flex w={"80%"} mx={"auto"} p={"xl"} gap={"md"} visibleFrom="md">
         <Box style={{ flex: 0.3 }}>
           <Card>
-            <Stack>
+            <Stack align="start">
               <Box>
                 <Title order={2} fw={700}>
                   Let us Guide You.
@@ -66,10 +37,13 @@ const FAQSection = () => {
                 </Title>
               </Box>
               <Text size="xs">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque laudantium
+                Still have questions? We’re here to help! Our team is committed to
+                providing you with the information and support you need to make
+                the best decision. Whether you're looking for more details or
+                personalized assistance, don’t hesitate to reach out—we’d love to
+                hear from you!
               </Text>
-              <CustomButton variant="filled" color="blue" to='/faqs'>
+              <CustomButton radius="xl" variant="filled" color="blue" to='/faqs'>
                 Read More
               </CustomButton>
             </Stack>
@@ -81,13 +55,10 @@ const FAQSection = () => {
           spacing={"xl"}
           style={{ flex: 0.7 }}
         >
-          {faqs.map(({ id, question, answer, category }) => (
+          {faqs.map((faq: FAQ, index: number) => (
             <FAQCards
-              key={id}
-              id={id}
-              question={question}
-              answer={answer}
-              category={category}
+              key={index}
+              {...faq}
             />
           ))}
         </SimpleGrid>
@@ -129,13 +100,10 @@ const FAQSection = () => {
           spacing={"xl"}
           style={{ flex: 0.7 }}
         >
-          {faqs.map(({ id, question, answer, category }) => (
+          {faqs.map((faq: FAQ, index: number) => (
             <FAQCards
-              key={id}
-              id={id}
-              question={question}
-              answer={answer}
-              category={category}
+              key={index}
+              {...faq}
             />
           ))}
         </SimpleGrid>

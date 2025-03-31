@@ -1,15 +1,6 @@
 import { BackgroundImage, Box, Center, Container, Paper, SimpleGrid, Stack, Text, Title } from '@mantine/core'
 import Accordion from '../../components/Accordion'
-import { client } from '@/sanity/lib/client'
-
-const getAllFaqs = async () => {
-    const query = `*[_type=="faqs"]{
-    question,
-    category,
-    answer
-    }`
-    return await client.fetch(query)
-}
+import { fetchFromSanity } from '@/lib/sanityApi'
 
 interface FAQs {
     question: string
@@ -17,9 +8,12 @@ interface FAQs {
     answer: string
 }
 
-
 const page = async () => {
-    const faqs = await getAllFaqs()
+    const faqs = await fetchFromSanity(`*[_type=="faqs"]{
+    question,
+    category,
+    answer
+    }`)
     return (
         <>
             <BackgroundImage
