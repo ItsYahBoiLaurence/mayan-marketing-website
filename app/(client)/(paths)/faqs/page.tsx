@@ -2,6 +2,8 @@ import { BackgroundImage, Box, Center, Container, Paper, SimpleGrid, Stack, Text
 import Accordion from '../../components/Accordion'
 import { fetchFromSanity } from '@/lib/sanityApi'
 
+export const revalidate = 60
+
 interface FAQs {
     question: string
     category: string

@@ -22,6 +22,8 @@ import CarouselBanner from "../../components/Banners/CarouselBanner";
 import CustomButton from "../../components/Button/CustomButton";
 import { fetchFromSanity } from "@/lib/sanityApi";
 
+export const revalidate = 60
+
 interface serviceType {
   title: string
   description: string

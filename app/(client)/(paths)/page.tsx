@@ -19,6 +19,8 @@ import FAQSection from "../components/Sections/FAQSection";
 import CaseStudyCard from "../components/Cards/CaseStudyCard";
 import Marquee from "react-fast-marquee";
 
+export const revalidate = 60
+
 export default function Home() {
   const images = [
     {
