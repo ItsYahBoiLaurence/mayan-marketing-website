@@ -10,6 +10,7 @@ import {
 import React from "react";
 import ServiceCard from "../Cards/ServiceCard";
 import { fetchFromSanity } from "@/lib/sanityApi";
+import ProcessCard from "../Cards/ProcessCard";
 
 export const revalidate = 60
 
@@ -21,13 +22,14 @@ interface serviceType {
 
 const ServiceSection = async () => {
 
-  const services = await fetchFromSanity(`*[_type=="process"]{title,description,image}[0...4]`)
+  const services = await fetchFromSanity(`*[_type == "process"] | order(order asc) {title, description, image}
+`)
   console.log(services)
 
   return (
     <>
       <Flex w={"80%"} mx={"auto"} p={"xl"} gap={"md"} visibleFrom="md">
-        <Box flex={0.33}>
+        <Box flex={0.31}>
           <Stack justify="start">
             <Title order={2} fw={700}>
               Your blueprint for digital implementation, simplified.
@@ -38,9 +40,9 @@ const ServiceSection = async () => {
             </Text>
           </Stack>
         </Box>
-        <SimpleGrid cols={2} verticalSpacing={"xl"} spacing={"xl"} flex={0.66}>
+        <SimpleGrid cols={2} verticalSpacing={"xl"} spacing={"xl"} flex={0.69}>
           {services.map((service: serviceType, index: number) => (
-            <ServiceCard
+            <ProcessCard
               key={index}
               {...service}
             />

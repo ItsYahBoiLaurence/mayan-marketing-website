@@ -11,6 +11,11 @@ export default {
             title: "Title"
         }),
         defineField({
+            name: "order",
+            type: "string",
+            title: "Order"
+        }),
+        defineField({
             name: "description",
             type: "text",
             title: "Description",
