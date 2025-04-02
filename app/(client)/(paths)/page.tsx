@@ -125,7 +125,7 @@ export default function Home() {
       <ServiceSection />
       {/* ----------------------------------------------------------------------------- */}
       <SectionBanner
-        image="./bannerImage.png"
+        image="./contactus.png"
         title={"Share your stories. Let's Get In Touch"}
         subDescription={
           "Every business has a unique journey. Let’s discuss your challenges, opportunities, to determine the right tech strategy that will drive your success."

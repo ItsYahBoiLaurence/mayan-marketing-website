@@ -218,7 +218,7 @@ const page = () => {
       </>
 
       <BannerWithOverlap
-        leftSideImage="/bannerOverlap.png"
+        leftSideImage="/overlapImage.png"
         rightSideImage="/bgBanner.png"
         title="Our Leaders. Experts, Not Executives."
         description="Mayan Solutions is led by seasoned strategists and technologists who work hands-on with clients to deliver tangible, results-driven solutions."
@@ -287,7 +287,7 @@ const page = () => {
       </>
 
       <SectionBanner
-        image="./bannerImage.png"
+        image="./contactus.png"
         title={"Share your stories. Let's Get In Touch"}
         subDescription={
           "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium"

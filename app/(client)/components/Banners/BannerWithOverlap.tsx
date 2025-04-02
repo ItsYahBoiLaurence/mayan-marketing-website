@@ -1,4 +1,5 @@
 import {
+  AspectRatio,
   Avatar,
   BackgroundImage,
   Box,
@@ -47,8 +48,10 @@ const BannerWithOverlap = ({
   return (
     <>
       <Flex w={"100%"} h={"100%"} visibleFrom="md">
-        <Box h={"100%"} py={"xl"} flex={0.6}>
-          <Image src={leftSideImage} alt="logo" />
+        <Box py={"xl"} flex={0.6} w={'100%'} style={{ overflow: "hidden" }}>
+          <AspectRatio ratio={1080 / 720}>
+            <Image src={leftSideImage} alt="logo" />
+          </AspectRatio>
         </Box>
         <Box pos={"relative"} flex={0.4}>
           <BackgroundImage src={rightSideImage} w={"100%"} h={"100%"}>
