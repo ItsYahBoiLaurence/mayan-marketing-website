@@ -7,6 +7,8 @@ import Footer from './components/Footer'
 import Script from 'next/script';
 import '@mantine/notifications/styles.css';
 import { Notifications } from '@mantine/notifications';
+import { GoogleAnalytics } from '@next/third-parties/google'
+
 
 export const metadata: Metadata = {
   title: "Mayan Solutions",
@@ -119,6 +121,7 @@ export default function RootLayout({
           </section>
           <Footer />
         </MantineProvider>
+        <GoogleAnalytics gaId={process.env.NEXT_GOOGLE_ANALYTICS_ID as string} />
       </body>
     </html >
   );
