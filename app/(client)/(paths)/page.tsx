@@ -18,6 +18,7 @@ import RightBanner from "../components/Banners/RightBanner";
 import FAQSection from "../components/Sections/FAQSection";
 import CaseStudyCard from "../components/Cards/CaseStudyCard";
 import Marquee from "react-fast-marquee";
+import SanityBanner from "../components/Banners/SanityBanner";
 
 export const revalidate = 60
 
@@ -84,7 +85,7 @@ export default function Home() {
 
   return (
     <Box w={"100%"}>
-      <HomepageBanner />
+      <SanityBanner />
       {/* ------------------------------------------------------------------------------ */}
       {/* Desktop */}
       <Flex

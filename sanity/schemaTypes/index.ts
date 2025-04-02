@@ -5,7 +5,8 @@ import study from './study'
 import faq from './faq'
 import service from './service'
 import process from './process'
+import banner from './banner'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [author, blog, study, faq, service, process],
+  types: [author, blog, study, faq, service, process, banner],
 }
