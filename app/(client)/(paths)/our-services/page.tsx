@@ -245,7 +245,7 @@ const page = async () => {
       </>
 
       <BannerWithOverlap
-        leftSideImage="/overlapImage.png"
+        leftSideImage="/overlapImage.jpeg"
         rightSideImage="/bgBanner.png"
         title="Empower your team with analytics and make data-driven decisions. "
         description="Transform your online platform into a powerful tool for engaging customers, driving leads and sales, and nurturing them throughout their journey with our proven 3DX process."
