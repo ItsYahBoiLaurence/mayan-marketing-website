@@ -9,6 +9,7 @@ interface ButtonType {
     btn_label: string
 }
 
+export const revalidate = 60
 
 const SanityBanner = async () => {
 
