@@ -89,6 +89,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
         <Script id="hotjar-script" strategy="afterInteractive">
           {`
             (function (c, s, q, u, a, r, e) {
