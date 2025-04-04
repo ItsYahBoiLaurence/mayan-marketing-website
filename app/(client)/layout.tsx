@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: "Mayan Solutions",
   description: "Mayan Solutions",
   icons: {
-    icon: "/logo.png"
+    icon: "/favicon.ico"
   },
 };
 
