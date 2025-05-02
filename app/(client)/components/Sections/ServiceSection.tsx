@@ -35,8 +35,7 @@ const ServiceSection = async () => {
               Your blueprint for digital implementation, simplified.
             </Title>
             <Text size="xs">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium
+              Seamlessly implement technology with clarity and confidence.
             </Text>
           </Stack>
         </Box>
@@ -56,8 +55,7 @@ const ServiceSection = async () => {
             Your blueprint for digital implementation, simplified.
           </Title>
           <Text ta={"center"} size="xs">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-            accusantium doloremque laudantium
+            Seamlessly implement technology with clarity and confidence.
           </Text>
         </Stack>
 

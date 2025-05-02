@@ -3,26 +3,17 @@ import { AspectRatio, BackgroundImage, Box, Center, Group, Image, Stack, Text, T
 import CustomText from '../CustomText/index'
 import CustomButton from "../Button/CustomButton"
 import { urlFor } from "@/sanity/lib/image"
-
-interface ButtonType {
-    btn_link: string
-    btn_label: string
-}
+import { ButtonType } from "@/app/types/buttonType"
 
 export const revalidate = 60
 
-const SanityBanner = async () => {
+interface QueryString {
+    queryString: string
+}
 
-    const bannerDetails = await fetchFromSanity(`*[_type=="page_banner" && name=="Homepage"]{
-        banner{
-            title,
-            subtitle,
-            description,
-            image,
-            style,
-            buttons
-        }
-    }[0]`)
+const SanityBanner = async ({ queryString }: QueryString) => {
+
+    const bannerDetails = await fetchFromSanity(queryString)
     const { title, subtitle, description, image, style, buttons } = bannerDetails.banner
 
     const Texts = (

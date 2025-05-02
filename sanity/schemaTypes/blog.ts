@@ -26,6 +26,9 @@ export default defineType({
             name: 'date',
             title: 'Date',
             type: 'date',
+            options: {
+                dateFormat: 'MMMM D, YYYY', // Formats date as "January 29, 2025"
+            },
             initialValue: () => new Date().toISOString().split('T')[0],
         }),
         defineField({

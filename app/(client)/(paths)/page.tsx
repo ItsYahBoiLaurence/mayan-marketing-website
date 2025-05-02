@@ -85,7 +85,16 @@ export default function Home() {
 
   return (
     <Box w={"100%"}>
-      <SanityBanner />
+      <SanityBanner queryString={`*[_type=="page_banner" && name=="Homepage"]{
+        banner{
+            title,
+            subtitle,
+            description,
+            image,
+            style,
+            buttons
+        }
+    }[0]`} />
       {/* ------------------------------------------------------------------------------ */}
       {/* Desktop */}
       <Flex
@@ -109,6 +118,7 @@ export default function Home() {
           />
         ))}
       </Flex>
+
       {/* Mobile */}
       <SimpleGrid cols={1} w={"90%"} mx={"auto"} mt={"-100px"} hiddenFrom="md">
         {caseStudies.map(({ image, title, description, buttonDesc }, index) => (

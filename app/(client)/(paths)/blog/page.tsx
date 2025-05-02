@@ -15,8 +15,16 @@ const getBlogs = async () => {
 }
 
 const page = async () => {
+
+    const transformDate = (isoDate: string) => {
+        const date = new Date(isoDate)
+        const options = { year: 'numeric', month: 'long', day: 'numeric' } as const;
+        return date.toLocaleDateString('en-US', options);
+    }
+
     const blogs = await getBlogs()
     console.log(blogs)
+
     return (
         <>
             <BackgroundImage
@@ -33,7 +41,7 @@ const page = async () => {
                             Blogs
                         </Text>
                         <Text size="72px" fw={700} c={"#fff"} ta={"center"}>
-                            Read <span style={{ color: '#FFCE13' }}>Insights</span> to drive <span style={{ color: '#FFCE13' }}> <br />Real Growth</span>
+                            Read <span style={{ color: '#FFCE13' }}>Insight</span> to drive <span style={{ color: '#FFCE13' }}> <br />Real Growth</span>
                         </Text>
                         <Box w={"60%"} mx={"auto"}>
                             <Text size="md" c={"#fff"} ta={"center"}>
@@ -77,10 +85,10 @@ const page = async () => {
                             <Image src={urlFor(image).url()} alt={title} h={'100%'} />
                         </CardSection>
                         <CardSection p={'lg'}>
-                            <Group gap={'md'}>
+                            <Stack align="space-between" gap={'xs'}>
+                                <Text size="sm" c='dimmed'>{transformDate(date)}</Text>
                                 <Text size="lg" fw={700}>{title}</Text>
-                                <Text size="sm" c='dimmed'>{date}</Text>
-                            </Group>
+                            </Stack>
                         </CardSection>
                     </Card>
                 ))}
@@ -93,10 +101,10 @@ const page = async () => {
                             <Image src={urlFor(image).url()} alt={title} h={'100%'} />
                         </CardSection>
                         <CardSection p={'md'}>
-                            <Group gap={'xs'}>
+                            <Stack gap={'xs'}>
+                                <Text size="xs" c='dimmed'>{transformDate(date)}</Text>
                                 <Text size="md" fw={700}>{title}</Text>
-                                <Text size="xs" c='dimmed'>{date}</Text>
-                            </Group>
+                            </Stack>
                         </CardSection>
                     </Card>
                 ))}
