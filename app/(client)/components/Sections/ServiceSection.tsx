@@ -24,8 +24,6 @@ const ServiceSection = async () => {
 
   const services = await fetchFromSanity(`*[_type == "process"] | order(order asc) {title, description, image}
 `)
-  console.log(services)
-
   return (
     <>
       <Flex w={"80%"} mx={"auto"} p={"xl"} gap={"md"} visibleFrom="md">

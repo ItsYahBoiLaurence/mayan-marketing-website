@@ -21,10 +21,7 @@ const page = async () => {
         const options = { year: 'numeric', month: 'long', day: 'numeric' } as const;
         return date.toLocaleDateString('en-US', options);
     }
-
     const blogs = await getBlogs()
-    console.log(blogs)
-
     return (
         <>
             <BackgroundImage

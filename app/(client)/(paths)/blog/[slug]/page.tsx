@@ -20,8 +20,6 @@ const getSingleBlog = async (slug: string) => {
 const page = async ({ params }: any) => {
     const { slug } = await params
     const blog = await getSingleBlog(slug)
-    console.log(blog)
-
     const formatDate = (dateString: string) => {
         const date = new Date(dateString);
         const options: Intl.DateTimeFormatOptions = {

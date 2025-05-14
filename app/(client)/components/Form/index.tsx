@@ -80,8 +80,6 @@ const FormComponent = () => {
         timeout: 8000, // 8 second timeout
       });
 
-      console.log("Form submission response:", response.data);
-
       // Check if we have a success response (either explicit or via our proxy's fallback)
       const isSuccess = response.data.success || response.status === 200;
 

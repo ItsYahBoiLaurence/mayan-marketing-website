@@ -66,7 +66,6 @@ async function fetchFromGoogleScript(method: string, params: any, ip: string) {
     if (method === 'GET' && cacheKey && responseCache[cacheKey]) {
         const cachedData = responseCache[cacheKey];
         if (Date.now() - cachedData.timestamp < CACHE_TTL) {
-            console.log('Returning cached response for:', cacheKey);
             return NextResponse.json(cachedData.data);
         } else {
             // Cache expired
@@ -85,7 +84,6 @@ async function fetchFromGoogleScript(method: string, params: any, ip: string) {
             url = `${url}?${queryParams.toString()}`;
         }
 
-        console.log(`Making ${method} request to: ${url}`);
 
         // Setup request with timeout
         const controller = new AbortController();
@@ -113,10 +111,6 @@ async function fetchFromGoogleScript(method: string, params: any, ip: string) {
 
         // Process response
         const responseText = await response.text();
-        console.log('Raw response:', responseText);
-        console.log('Response length:', responseText.length);
-        console.log('Content-Type:', response.headers.get('content-type'));
-
         // Handle non-OK responses
         if (!response.ok) {
             console.error(`API error: ${response.status}`);
@@ -140,7 +134,7 @@ async function fetchFromGoogleScript(method: string, params: any, ip: string) {
         try {
             // Handle empty responses gracefully
             if (!responseText || responseText.trim() === '') {
-                console.log('Empty response received, but request was likely successful');
+
                 return NextResponse.json({
                     success: true,
                     message: 'Request processed successfully'
@@ -148,7 +142,7 @@ async function fetchFromGoogleScript(method: string, params: any, ip: string) {
             }
 
             const data = JSON.parse(responseText);
-            console.log('Parsed data:', data);
+
             // Cache successful GET responses
             if (method === 'GET' && cacheKey) {
                 responseCache[cacheKey] = {
@@ -163,7 +157,6 @@ async function fetchFromGoogleScript(method: string, params: any, ip: string) {
 
             // If the response is HTTP 200 OK but not JSON, assume success
             if (response.ok) {
-                console.log('Non-JSON response with status 200, treating as success');
                 return NextResponse.json({
                     success: true,
                     message: 'Request processed successfully',
