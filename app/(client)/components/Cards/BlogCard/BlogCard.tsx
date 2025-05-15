@@ -2,6 +2,7 @@ import { AspectRatio, Card, Image, Paper, Text } from '@mantine/core'
 import React from 'react'
 import classes from './BlogCard.module.css'
 import { urlFor } from '@/sanity/lib/image'
+
 type BlogCardProps = {
     title: string
     img: string
