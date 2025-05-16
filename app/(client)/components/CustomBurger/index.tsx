@@ -31,8 +31,8 @@ const navItems = [
     href: "/faqs",
   },
   {
-    label: "Blog",
-    href: "/blog",
+    label: "Articles",
+    href: "/articles",
   },
 ];
 

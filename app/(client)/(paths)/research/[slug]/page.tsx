@@ -34,11 +34,9 @@ export default async function page({ params }: any) {
 
     const singleResearch = await getSingleResearch(slug)
 
-    console.log(singleResearch)
+    const { title, image, body, highlights, file } = singleResearch
 
-    const { title, image, body, highlights } = singleResearch
-
-    console.log(highlights.length)
+    console.log(file)
 
     return (
 
@@ -220,7 +218,9 @@ export default async function page({ params }: any) {
                     </Box>
                 </Stack>
             </Container>
-            <Flex justify="center" >
+
+
+            <Flex justify="center" visibleFrom="md">
                 <Center bg={'rgba(248, 248, 248, 1)'} flex={.5} py={'lg'}>
                     <Stack w={"70%"}>
                         <Text size="lg" fw={700}>{title}</Text>
@@ -247,6 +247,38 @@ export default async function page({ params }: any) {
                 <Box flex={.5} >
                     <BackgroundImage src="/formBg2.jpg" h={'100%'}>
                         <Center h={'100%'} bg='rgba(239, 239, 239, 1)' opacity={0.96}>
+                            <EmailForm documentTitle={title} />
+                        </Center>
+                    </BackgroundImage>
+                </Box>
+            </Flex >
+            <Flex direction='column' hiddenFrom="md">
+                <Center bg={'rgba(248, 248, 248, 1)'} flex={.5} py={'lg'}>
+                    <Stack p={'md'}>
+                        <Text size="lg" fw={700}>{title}</Text>
+                        <Image src={urlFor(image).url()} />
+                        {highlights.length > 0
+                            ? (
+                                <Stack>
+                                    <Group gap={0}>
+                                        <IconFile stroke={2} style={{ color: 'black' }} />
+                                        <Text size="xl" fw={700} >What's inside the PDF:</Text>
+                                    </Group>
+                                    {highlights.map((item: string, index: number) => (
+                                        <Group key={index}>
+                                            <IconSquareRoundedCheck stroke={2} style={{ color: 'green' }} />
+                                            <Text size="xs">{item}</Text>
+                                        </Group>
+                                    ))}
+                                </Stack>
+                            )
+                            : <></>}
+                    </Stack>
+                </Center>
+
+                <Box flex={.5}>
+                    <BackgroundImage src="/formBg2.jpg" h={'100%'}>
+                        <Center h={'100%'} bg='rgba(239, 239, 239, 1)' opacity={0.96} p={'lg'}>
                             <EmailForm documentTitle={title} />
                         </Center>
                     </BackgroundImage>
