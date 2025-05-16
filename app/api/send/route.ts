@@ -80,6 +80,8 @@ export async function POST(request: NextRequest) {
             </html>`
     }
 
+    const spreadsheet_url: string = process.env.NEXT_SPREADSHEET_URL!
+
     const transporter = nodemailer.createTransport({
         host: process.env.NEXT_HOST,
         port: Number(process.env.NEXT_PORT),
@@ -102,6 +104,21 @@ export async function POST(request: NextRequest) {
                 }
             ]
         })
+
+        await fetch(spreadsheet_url, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                first_name,
+                last_name,
+                email,
+                company,
+                job_title
+            })
+        })
+
         return NextResponse.json({ message: 'Email sent successfully' }, { status: 200 })
     } catch (e) {
         return NextResponse.json({ error: 'Error sending email' }, { status: 500 })
