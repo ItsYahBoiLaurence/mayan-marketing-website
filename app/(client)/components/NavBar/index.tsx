@@ -7,10 +7,6 @@ const navItems = [
     label: "Our Services",
     href: "/our-services",
   },
-  // {
-  //   label: "Case Studies",
-  //   href: "/case-studies",
-  // },
   {
     label: "About Us",
     href: "/about-us",
@@ -20,8 +16,8 @@ const navItems = [
     href: "/contact-us",
   },
   {
-    label: "Blogs",
-    href: "/blog",
+    label: "Articles",
+    href: "/articles",
   },
 ];
 
@@ -47,7 +43,6 @@ const Navbar = () => {
         </Anchor>
         <CustomBurger />
       </Group>
-
       <Group
         style={{
           position: "fixed",
