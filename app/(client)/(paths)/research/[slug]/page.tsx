@@ -252,6 +252,7 @@ export default async function page({ params }: any) {
                     </BackgroundImage>
                 </Box>
             </Flex >
+            
             <Flex direction='column' hiddenFrom="md">
                 <Center bg={'rgba(248, 248, 248, 1)'} flex={.5} py={'lg'}>
                     <Stack p={'md'}>
