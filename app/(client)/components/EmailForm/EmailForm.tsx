@@ -13,11 +13,16 @@ type FormEmail = {
     documentTitle: string
 }
 
+type ResponseError = {
+    error: string
+    code: string
+}
+
 export default function EmailForm({ documentTitle }: { documentTitle: string }) {
 
     const isMobile = useMediaQuery('(max-width: 62em)');
 
-    const { register, handleSubmit, reset, formState: { isSubmitSuccessful, isSubmitting } } = useForm<FormEmail>({
+    const { register, handleSubmit, reset, formState: { errors, isSubmitSuccessful, isSubmitting }, setError } = useForm<FormEmail>({
         defaultValues: {
             first_name: "",
             last_name: "",
@@ -28,28 +33,32 @@ export default function EmailForm({ documentTitle }: { documentTitle: string }) 
         }
     })
 
-    const onsubmit = async (data: FormEmail) => {
+    const onsubmit = async (formData: FormEmail) => {
         try {
-            await fetch('/api/send', {
+            const res = await fetch('/api/send', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(data)
+                body: JSON.stringify(formData)
             })
-                .then(res => res.json)
-                .then(data => {
-                    reset()
-                    console.log(data)
-                })
-        } catch (e) {
-            console.log(e)
+            if (res.status !== 200) {
+                const errorData = await res.json()
+                throw errorData
+            }
+            const data = await res.json()
+            reset()
+            return data
+        } catch (e: any) {
+            if (e.code == 'invalid-email') {
+                setError('email', { type: 'manual', message: 'Please use a corporate email' })
+            }
         }
     }
 
     return (
         <Center w={"100%"} mx={'auto'}>
-            <form style={isMobile? { width: '100%' }:{ width: '60%' }} onSubmit={handleSubmit(onsubmit)}>
+            <form style={isMobile ? { width: '100%' } : { width: '60%' }} onSubmit={handleSubmit(onsubmit)}>
                 {isSubmitSuccessful && <Text my={'md'} c={'green'} ta={'center'}>We sent the document to your email!</Text>}
                 <Stack justify="center" align="center">
                     <Stack w={'100%'} gap={'lg'}>
@@ -72,7 +81,9 @@ export default function EmailForm({ documentTitle }: { documentTitle: string }) 
                             label={<Text tt={'uppercase'}>email address</Text>}
                             placeholder="Enter you email address"
                             radius={'md'}
-                            size="md" />
+                            size="md"
+                            error={errors.email?.message}
+                        />
                         <TextInput
                             {...register('company', { required: "Company is required" })}
                             label={<Text tt={'uppercase'}>company</Text>}
