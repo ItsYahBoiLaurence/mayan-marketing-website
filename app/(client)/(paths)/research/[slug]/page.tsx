@@ -41,16 +41,6 @@ export default async function page({ params }: any) {
 
     const { title, image, body, gatedPdfContent } = singleResearch
 
-    if (gatedPdfContent === true) {
-        console.log("======pdf======")
-        console.log(singleResearch.file)
-        console.log("============")
-    } else {
-        console.log("======video======")
-        console.log(singleResearch.videoUrl)
-        console.log("============")
-    }
-
     return (
 
         <Box>
