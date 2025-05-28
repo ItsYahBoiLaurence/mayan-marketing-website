@@ -1,10 +1,12 @@
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import { BackgroundImage, Box, Button, Center, Flex, Group, Image, Paper, Stack, Text, Title, Card, SimpleGrid, CardSection } from "@mantine/core";
+import ContentCard from "../../components/Cards/ContentCard/ContentCard";
+import { ArrayObject } from "@/app/types/ContentTypes";
 
 export const revalidate = 60
 
-const getResearch = async (): Promise<ResearchType[]> => {
+const getResearch = async (): Promise<ArrayObject[]> => {
     const query = `*[_type == "gatedContent"]{
         _id,
         title,
@@ -12,16 +14,6 @@ const getResearch = async (): Promise<ResearchType[]> => {
         image,
     }`
     return await client.fetch(query)
-}
-
-type ResearchType = {
-    _id: string,
-    slug: {
-        _type: string,
-        current: string
-    },
-    title: string,
-    image: Object
 }
 
 export default async function page() {
@@ -67,22 +59,7 @@ export default async function page() {
                     </Paper>
                 </BackgroundImage>
             </>
-            <SimpleGrid cols={1} w={"90%"} mx={'auto'}>
-                {research.map(({ _id, slug, title, image }) => (
-                    <Card key={_id} component="a" href={`/research/${slug.current}`}>
-                        <CardSection h={250}>
-                            <Image src={urlFor(image).url()} alt={title} h={'100%'} />
-                        </CardSection>
-                        <CardSection>
-                            <Stack align="space-between" gap={'xs'}>
-                                <Text size="sm" c='dimmed'>{ }</Text>
-                                <Text size="lg" fw={700}>{title}</Text>
-                            </Stack>
-                        </CardSection>
-                    </Card>
-                ))}
-            </SimpleGrid>
-
+            <ContentCard path={'research'} arrayObject={research} />
         </Box>
     )
 }

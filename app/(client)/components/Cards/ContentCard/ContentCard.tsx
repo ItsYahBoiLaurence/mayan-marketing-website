@@ -12,14 +12,14 @@ interface ArrayObject {
     image: string
 }
 
-export default function ({ arrayObject }: { arrayObject: ArrayObject[] }) {
+export default function ({ arrayObject, path }: { arrayObject: ArrayObject[], path: string }) {
 
     const isMobile = useMediaQuery('(max-width: 62em)')
 
     return (
         <SimpleGrid cols={isMobile ? 1 : 3} w={"90%"} mx={'auto'}>
             {arrayObject.map(({ title, slug, image }, index) => (
-                <Card key={index} component="a" href={`/video-content/${slug.current}`}>
+                <Card key={index} component="a" href={`/${path}/${slug.current}`}>
                     <CardSection h={250}>
                         <Image src={urlFor(image).url()} alt={title} h={'100%'} />
                     </CardSection>
