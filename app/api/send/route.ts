@@ -98,6 +98,8 @@ export async function POST(request: NextRequest) {
 
     const spreadsheet_url: string = process.env.NEXT_SPREADSHEET_URL!
 
+    const date = new Date().toLocaleDateString();
+
     const transporter = nodemailer.createTransport({
         host: process.env.NEXT_HOST,
         port: Number(process.env.NEXT_PORT),
@@ -131,7 +133,9 @@ export async function POST(request: NextRequest) {
                 last_name,
                 email,
                 company,
-                job_title
+                job_title,
+                date,
+                documentTitle
             })
         })
 

@@ -8,7 +8,7 @@ import Script from 'next/script';
 import '@mantine/notifications/styles.css';
 import { Notifications } from '@mantine/notifications';
 import { GoogleAnalytics } from '@next/third-parties/google'
-
+import '@mantine/notifications/styles.css';
 
 export const metadata: Metadata = {
   title: "Mayan Solutions",
