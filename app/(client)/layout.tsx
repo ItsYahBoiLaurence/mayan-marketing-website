@@ -9,6 +9,7 @@ import '@mantine/notifications/styles.css';
 import { Notifications } from '@mantine/notifications';
 import { GoogleAnalytics } from '@next/third-parties/google'
 import '@mantine/notifications/styles.css';
+import 'react-phone-input-2/lib/style.css';
 
 export const metadata: Metadata = {
   title: "Mayan Solutions",

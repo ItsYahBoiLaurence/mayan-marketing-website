@@ -15,7 +15,7 @@ const isCorporateEmail = (email: string) => {
 
 export async function POST(request: NextRequest) {
 
-    const { first_name, email, last_name, company, job_title, documentTitle } = await request.json()
+    const { first_name, email, last_name, company, job_title, documentTitle, phone } = await request.json()
 
     if (!isCorporateEmail(email)) {
         return NextResponse.json({ error: 'Please use a corporate email', code: 'invalid-email' }, { status: 400 })
@@ -135,7 +135,8 @@ export async function POST(request: NextRequest) {
                 company,
                 job_title,
                 date,
-                documentTitle
+                documentTitle,
+                phone
             })
         })
 

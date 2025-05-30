@@ -4,8 +4,9 @@ import { BackgroundImage, Box, Button, Center, Modal, Stack, Text, TextInput, Ti
 import { useDisclosure, useMediaQuery } from "@mantine/hooks"
 import { IconPlayerPlay } from "@tabler/icons-react"
 import { useState } from "react"
-import { useForm } from "react-hook-form"
+import { Controller, useForm } from "react-hook-form"
 import { notifications } from '@mantine/notifications';
+import PhoneInput from "react-phone-input-2"
 
 interface VideoDetails {
     image: string
@@ -20,6 +21,7 @@ interface FormData {
     company: string
     job_title: string
     documentTitle: string
+    phone: string
 }
 
 export default function VideoPlayer({ image, videoUrl, title }: VideoDetails) {
@@ -28,14 +30,15 @@ export default function VideoPlayer({ image, videoUrl, title }: VideoDetails) {
     const [canPlay, setCanplay] = useState(false)
     const [opened, { close, open }] = useDisclosure(false)
 
-    const { register, handleSubmit, reset, formState: { errors, isSubmitting }, setError } = useForm<FormData>({
+    const { control, register, handleSubmit, reset, formState: { errors, isSubmitting }, setError } = useForm<FormData>({
         defaultValues: {
             first_name: "",
             last_name: "",
             email: "",
             company: "",
             job_title: "",
-            documentTitle: title
+            documentTitle: title,
+            phone: "",
         }
     })
 
@@ -79,36 +82,59 @@ export default function VideoPlayer({ image, videoUrl, title }: VideoDetails) {
 
     return (
         <>
-            <Modal opened={opened} onClose={close} title={<Text size="lg" fw={700}>Fill out the form to watch the video.</Text>} centered>
+            <Modal opened={opened} onClose={close} title={<Text size={isMobile ? "md" : "lg"} fw={700}>Fill out the form to watch the video.</Text>} centered>
                 <form onSubmit={handleSubmit(onsubmit)}>
-                    <Stack>
+                    <Stack gap={isMobile ? 'xs' : undefined}>
                         <TextInput
                             {...register('first_name', { required: "First Name is required" })}
-                            size={'md'} label={<Text pb={'xs'}>First Name</Text>}
+                            size={isMobile ? 'sm' : 'md'} label={<Text pb={'xs'}>First Name</Text>}
                             placeholder="Enter your first name..."
                         />
                         <TextInput
                             {...register('last_name', { required: "Last Name is required" })}
-                            size={'md'} label={<Text pb={'xs'}>Last Name</Text>}
+                            size={isMobile ? 'sm' : 'md'} label={<Text pb={'xs'}>Last Name</Text>}
                             placeholder="Enter your last name..."
                         />
                         <TextInput
                             {...register('email', { required: "Email is required" })}
-                            size={'md'} label={<Text pb={'xs'}>Email</Text>}
+                            size={isMobile ? 'sm' : 'md'} label={<Text pb={'xs'}>Email</Text>}
                             placeholder="Enter your email..."
                             error={errors.email?.message}
                         />
+                        <Box>
+                            <Controller
+                                name="phone"
+                                control={control}
+                                rules={{
+                                    required: 'Phone number is required',
+                                }}
+                                render={({ field }) => (
+                                    <>
+                                        <Text tt={'uppercase'}>phone number</Text>
+                                        <PhoneInput
+                                            {...field}
+                                            country={'ph'}
+                                            inputStyle={{ width: '100%', height: '40px', borderRadius: isMobile ? '4px' : '8px' }}
+                                        />
+                                    </>
+                                )}
+                            />
+                            {errors.phone && <p style={{ color: 'red' }}>{errors.phone.message}</p>}
+                        </Box>
                         <TextInput
                             {...register('company', { required: "Company is required" })}
-                            size={'md'} label={<Text pb={'xs'}>Company</Text>}
+                            size={isMobile ? 'sm' : 'md'} label={<Text pb={'xs'}>Company</Text>}
                             placeholder="Enter your company..."
                         />
                         <TextInput
                             {...register('job_title', { required: "Job Title is required" })}
-                            size={'md'} label={<Text pb={'xs'}>Job Title</Text>}
+                            size={isMobile ? 'sm' : 'md'} label={<Text pb={'xs'}>Job Title</Text>}
                             placeholder="Enter your job title..."
                         />
-                        <Button color={"rgba(0, 31, 101, 1)"} size="md" type="submit" loading={isSubmitting}>Submit</Button>
+                        <Stack mt={'xs'}>
+                            <Text size='xs' fs={'italic'} ta={'center'}>Disclaimer: By providing your contact information, you agree to receive communications from our marketing and sales representatives. You may opt out at any time.</Text>
+                            <Button color={"rgba(0, 31, 101, 1)"} size="md" type="submit" loading={isSubmitting}>Submit</Button>
+                        </Stack>
                     </Stack>
                 </form>
             </Modal>

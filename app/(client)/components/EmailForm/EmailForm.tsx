@@ -1,16 +1,18 @@
 'use client'
-import { Box, Button, Center, Stack, Text, TextInput } from '@mantine/core'
+import { Box, Button, Center, Checkbox, Stack, Text, TextInput } from '@mantine/core'
 import { IconSend } from '@tabler/icons-react'
-import { useForm, } from 'react-hook-form'
+import { useForm, Controller } from 'react-hook-form'
 import { useMediaQuery } from '@mantine/hooks';
+import PhoneInput from 'react-phone-input-2';
 
 type FormEmail = {
     first_name: string
     last_name: string
     email: string
     company: string
-    job_title: string,
+    job_title: string
     documentTitle: string
+    phone: string
 }
 
 type ResponseError = {
@@ -22,13 +24,14 @@ export default function EmailForm({ documentTitle }: { documentTitle: string }) 
 
     const isMobile = useMediaQuery('(max-width: 62em)');
 
-    const { register, handleSubmit, reset, formState: { errors, isSubmitSuccessful, isSubmitting }, setError } = useForm<FormEmail>({
+    const { control, register, handleSubmit, reset, formState: { errors, isSubmitSuccessful, isSubmitting }, setError } = useForm<FormEmail>({
         defaultValues: {
             first_name: "",
             last_name: "",
             email: "",
             company: "",
             job_title: "",
+            phone: "",
             documentTitle: documentTitle
         }
     })
@@ -84,6 +87,28 @@ export default function EmailForm({ documentTitle }: { documentTitle: string }) 
                             size="md"
                             error={errors.email?.message}
                         />
+
+                        <Box>
+                            <Controller
+                                name="phone"
+                                control={control}
+                                rules={{
+                                    required: 'Phone number is required',
+                                }}
+                                render={({ field }) => (
+                                    <>
+                                        <Text tt={'uppercase'}>phone number</Text>
+                                        <PhoneInput
+                                            {...field}
+                                            country={'ph'}
+                                            inputStyle={{ width: '100%', height: '40px', borderRadius: '8px' }}
+                                        />
+                                    </>
+                                )}
+                            />
+                            {errors.phone && <p style={{ color: 'red' }}>{errors.phone.message}</p>}
+                        </Box>
+
                         <TextInput
                             {...register('company', { required: "Company is required" })}
                             label={<Text tt={'uppercase'}>company</Text>}
@@ -98,8 +123,8 @@ export default function EmailForm({ documentTitle }: { documentTitle: string }) 
                             size="md"
                             radius={'md'}
                         />
+                        <Text size='xs' fs={'italic'} ta={'center'}>Disclaimer: By providing your contact information, you agree to receive communications from our marketing and sales representatives. You may opt out at any time.</Text>
                     </Stack>
-
                     <Button disabled={isSubmitting} loading={isSubmitting} type='submit' my={'lg'} style={{ backgroundColor: 'rgba(0, 31, 101, 1)' }} size="lg" leftSection={<IconSend stroke={2} />} >
                         <Text tt={'uppercase'}>get the report via email</Text>
                     </Button>
