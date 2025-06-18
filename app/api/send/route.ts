@@ -97,6 +97,34 @@ export async function POST(request: NextRequest) {
     }
 
     const spreadsheet_url: string = process.env.NEXT_SPREADSHEET_URL!
+    const bot_webhook: string = process.env.NEXT_PDF_BOT_WEBHOOK!
+
+    const payload = {
+        msg_type: "post",
+        content: {
+            post: {
+                en_us: {
+                    title: "PDF REQUEST NOTICE",
+                    content: [
+                        [
+                            {
+                                tag: "text",
+                                text: `${first_name} ${last_name} requested ${documentTitle}.`
+                            }
+                        ],
+                        [
+                            {
+                                tag: "a",
+                                text: "PDF Requests Spreadsheet",
+                                href: "https://docs.google.com/spreadsheets/d/1kSI6kPzrbvDuES0UsCnIo1KTuDRwaMLGi7na_w9zLus/edit?gid=0#gid=0"
+                            }
+                        ]
+                    ]
+                }
+            }
+        }
+    }
+
 
     const date = new Date().toLocaleDateString();
 
@@ -138,6 +166,14 @@ export async function POST(request: NextRequest) {
                 documentTitle,
                 phone
             })
+        })
+
+        await fetch(bot_webhook, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
         })
 
         return NextResponse.json({ message: 'Email sent successfully' }, { status: 200 })
